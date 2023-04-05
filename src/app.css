@@ -1,0 +1,35 @@
+@import url('./styles/reset.css');
+@import url('./styles/variables.css');
+
+body {
+	font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+		'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+	font-size: var(--fs-0);
+	color: var(--text-2);
+	background-color: var(--surface-2);
+}
+
+h1,
+h2,
+h3 {
+	line-height: 1.2;
+	color: var(--text-1);
+}
+
+h1 {
+	font-size: var(--fs-5);
+}
+h2 {
+	font-size: var(--fs-4);
+}
+h3 {
+	font-size: var(--fs-3);
+}
+
+fieldset {
+	border: 1px solid var(--border-3);
+}
+legend {
+	/* font-size: var(--fs--1); */
+	font-style: italic;
+}

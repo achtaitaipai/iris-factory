@@ -1,0 +1,44 @@
+:root {
+	--fs--2: clamp(0.69rem, calc(0.69rem + 0.04vw), 0.72rem);
+	--fs--1: clamp(0.83rem, calc(0.81rem + 0.12vw), 0.9rem);
+	--fs-0: clamp(1rem, calc(0.96rem + 0.22vw), 1.13rem);
+	--fs-1: clamp(1.2rem, calc(1.13rem + 0.36vw), 1.41rem);
+	--fs-2: clamp(1.44rem, calc(1.33rem + 0.55vw), 1.76rem);
+	--fs-3: clamp(1.73rem, calc(1.56rem + 0.82vw), 2.2rem);
+	--fs-4: clamp(2.07rem, calc(1.84rem + 1.17vw), 2.75rem);
+	--fs-5: clamp(2.49rem, calc(2.16rem + 1.64vw), 3.43rem);
+
+	--s-3xs: clamp(0.25rem, calc(0.23rem + 0.11vw), 0.31rem);
+	--s-2xs: clamp(0.5rem, calc(0.48rem + 0.11vw), 0.56rem);
+	--s-xs: clamp(0.75rem, calc(0.71rem + 0.22vw), 0.88rem);
+	--s-s: clamp(1rem, calc(0.96rem + 0.22vw), 1.13rem);
+	--s-m: clamp(1.5rem, calc(1.43rem + 0.33vw), 1.69rem);
+	--s-l: clamp(2rem, calc(1.91rem + 0.43vw), 2.25rem);
+	--s-xl: clamp(3rem, calc(2.87rem + 0.65vw), 3.38rem);
+	--s-2xl: clamp(4rem, calc(3.83rem + 0.87vw), 4.5rem);
+	--s-3xl: clamp(6rem, calc(5.74rem + 1.3vw), 6.75rem);
+
+	--gray-1: #f4f4fc;
+	--gray-2: #f0f1f8;
+	--gray-3: #e4e5ec;
+	--gray-4: #d2d3da;
+	--gray-5: #b9bac1;
+	--gray-6: #9b9ca3;
+	--gray-7: #7a7b82;
+	--gray-8: #58585f;
+	--gray-9: #35363c;
+	--gray-10: #15161b;
+
+	--surface-1: var(--gray-1);
+	--surface-2: var(--gray-2);
+	--surface-3: var(--gray-3);
+
+	--text-1: var(--gray-10);
+	--text-2: var(--gray-9);
+	--text-3: var(--gray-8);
+	--text-4: var(--gray-7);
+
+	--border-1: var(--gray-3);
+	--border-2: var(--gray-4);
+	--border-3: var(--gray-5);
+}
