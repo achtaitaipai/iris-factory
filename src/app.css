@@ -1,5 +1,7 @@
 @import url('./styles/reset.css');
-@import url('./styles/variables.css');
+@import url('./styles/variables/sizes.css');
+@import url('./styles/variables/colors.css');
+@import url('./styles/variables/theme.css');
 @import url('./styles/toast.css');
 
 body {
@@ -37,14 +39,14 @@ legend {
 
 button {
 	display: block;
-	background-color: var(--surface-1);
+	background-color: transparent;
 	border: 1px solid var(--border-2);
 }
 
 button:where(:hover, :focus-visible) {
-	color: var(--text-1);
-	background-color: var(--surface-3);
-	border-color: var(--border-2);
+	color: var(--accent-7);
+	background-color: var(--surface-1);
+	border-color: var(--accent-5);
 }
 
 .center > *:not(.full-bleed) {

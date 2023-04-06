@@ -13,7 +13,6 @@ export const buildJson = (palettes: { colors: Color[]; name: string }[]) => {
 				},
 				{}
 			)
-			console.log(currentPalette)
 			return { ...data, ...currentPalette }
 		},
 		{}

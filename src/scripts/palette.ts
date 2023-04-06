@@ -16,6 +16,17 @@ export type Color = {
 	lightness: number
 }
 
+export const clonePaletteOptions = (
+	palette: PaletteOptions
+): PaletteOptions => ({
+	chroma: [...palette.chroma],
+	lightness: [...palette.lightness],
+	hue: palette.hue,
+	steps: palette.steps,
+	chromaEase: palette.chromaEase,
+	lightnessEase: palette.lightnessEase,
+})
+
 export const buildPalette = ({
 	hue,
 	lightness,

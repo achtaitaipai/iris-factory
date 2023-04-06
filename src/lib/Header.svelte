@@ -26,12 +26,15 @@
 		background-color: var(--surface-1);
 		border-bottom: 1px solid var(--border-2);
 	}
+	h1 {
+		color: var(--accent-10);
+	}
 	nav a {
 		color: var(--text-3);
 		font-size: var(--fs-2);
 	}
 
 	nav a:where(:hover, :focus) {
-		color: var(--text-1);
+		color: var(--accent-7);
 	}
 </style>

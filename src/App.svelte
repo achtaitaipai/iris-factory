@@ -4,7 +4,11 @@
 	import Header from './lib/Header.svelte'
 	import PaletteBuilder from './lib/PaletteBuilder.svelte'
 	import { getDatasFromUrl } from './scripts/dataToUrl'
-	import type { Palette, PaletteOptions } from './scripts/palette'
+	import {
+		clonePaletteOptions,
+		type Palette,
+		type PaletteOptions,
+	} from './scripts/palette'
 	import { uniqueName } from './scripts/uniqueName'
 	const defaultPalette: PaletteOptions = {
 		chroma: [0.01, 0.2, 0.02],
@@ -22,13 +26,14 @@
 		palettes = [
 			...palettes,
 			{
+				...clonePaletteOptions(
+					palettes[palettes.length - 1] ?? defaultPalette
+				),
+				hue: Math.floor(Math.random() * 360),
 				name: uniqueName(
 					'color-0',
 					palettes.map((p) => p.name)
 				),
-
-				...defaultPalette,
-				hue: Math.floor(Math.random() * 360),
 			},
 		]
 	}

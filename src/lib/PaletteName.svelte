@@ -39,7 +39,7 @@
 		color: var(--text-4);
 	}
 	input:where(:hover, :focus) {
-		background-color: var(--surface-3);
+		background-color: var(--accent-3);
 		color: var(--text-3);
 		outline: 0;
 	}

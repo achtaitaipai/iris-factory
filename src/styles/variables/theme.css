@@ -1,0 +1,61 @@
+:root {
+	--surface-1: var(--neutral-1);
+	--surface-2: var(--neutral-2);
+	--surface-3: var(--neutral-3);
+
+	--text-1: var(--neutral-10);
+	--text-2: var(--neutral-9);
+	--text-3: var(--neutral-8);
+	--text-4: var(--neutral-7);
+
+	--border-1: var(--neutral-3);
+	--border-2: var(--neutral-4);
+	--border-3: var(--neutral-5);
+
+	--surface-dark-1: var(--neutral-10);
+	--surface-dark-2: var(--neutral-9);
+	--surface-dark-3: var(--neutral-8);
+
+	--text-dark-1: var(--neutral-2);
+	--text-dark-2: var(--neutral-3);
+	--text-dark-3: var(--neutral-4);
+	--text-dark-4: var(--neutral-5);
+
+	--border-dark-1: var(--neutral-8);
+	--border-dark-2: var(--neutral-7);
+	--border-dark-3: var(--neutral-6);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		color-scheme: dark;
+		--surface-1: var(--surface-dark-1);
+		--surface-2: var(--surface-dark-2);
+		--surface-3: var(--surface-dark-3);
+
+		--text-1: var(--text-dark-1);
+		--text-2: var(--text-dark-2);
+		--text-3: var(--text-dark-3);
+		--text-4: var(--text-dark-4);
+
+		--border-1: var(--border-dark-1);
+		--border-2: var(--border-dark-2);
+		--border-3: var(--border-dark-3);
+	}
+}
+
+[data-theme='dark'] {
+	color-scheme: dark;
+	--surface-1: var(--surface-dark-1);
+	--surface-2: var(--surface-dark-2);
+	--surface-3: var(--surface-dark-3);
+
+	--text-1: var(--text-dark-1);
+	--text-2: var(--text-dark-2);
+	--text-3: var(--text-dark-3);
+	--text-4: var(--text-dark-4);
+
+	--border-1: var(--border-dark-1);
+	--border-2: var(--border-dark-2);
+	--border-3: var(--border-dark-3);
+}
