@@ -67,15 +67,14 @@
 		border: 0;
 		outline: 0;
 	}
+	input.newKey:where(:hover, :focus) {
+		background-color: var(--surface-2);
+	}
 	.key {
 		display: flex;
 		align-items: center;
 		border: 1px solid var(--border-2);
 		color: var(--text-2);
-	}
-	.key:focus-within {
-		border: 1px solid var(--border-3);
-		color: var(--text-1);
 	}
 
 	.key input {
@@ -85,6 +84,10 @@
 		border: 0;
 		text-align: center;
 		background-color: transparent;
+	}
+	.key:where(:hover, :focus-within) {
+		background-color: var(--surface-2);
+		outline: 1px solid var(--border-3);
 	}
 	.key button {
 		padding-inline: var(--s-2xs);

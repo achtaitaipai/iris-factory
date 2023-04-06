@@ -23,7 +23,7 @@
 		padding-block: var(--s-3xs);
 		/* border-radius: 0.8rem; */
 		border-color: var(--border-2);
-		background-color: var(--surface-2);
+		background-color: var(--surface-1);
 		appearance: none;
 		background-image: linear-gradient(45deg, transparent 50%, gray 50%),
 			linear-gradient(135deg, gray 50%, transparent 50%),
@@ -33,7 +33,8 @@
 		background-size: 5px 5px, 5px 5px, 1px 1.5em;
 		background-repeat: no-repeat;
 	}
-	select:where(:focus) {
+	select:where(:hover, :focus) {
 		outline: 1px solid var(--border-3);
+		background-color: var(--surface-2);
 	}
 </style>

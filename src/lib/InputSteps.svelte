@@ -10,13 +10,14 @@
 <style>
 	input {
 		width: 6ch;
-		background-color: var(--surface-2);
+		background-color: var(--surface-1);
 		text-align: center;
 		border: 1px solid var(--border-2);
 		/* border-radius: 0.8rem; */
 	}
 	input:where(:focus, :hover) {
 		border: 1px solid var(--border-3);
-		outline: 0;
+		background-color: var(--surface-2);
+		outline: 1px solid var(--border-3);
 	}
 </style>
