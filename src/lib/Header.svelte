@@ -2,7 +2,7 @@
 	<h1>Iris Factory</h1>
 	<nav>
 		<a
-			href="https://github.com/achtaitaipai/iris-factory"
+			href="https://github.com/achtaitaipai/iris-factory#readme"
 			target="_blank"
 			title="github"
 		>

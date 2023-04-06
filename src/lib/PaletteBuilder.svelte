@@ -21,16 +21,21 @@
 	<form action="">
 		<header>
 			<PaletteName bind:name />
-			<button type="button" on:click={remove}>
+			<button type="button" on:click={remove} title="remove palette">
 				<svg
-					viewBox="0 0 24 24"
-					width="1em"
-					height="1em"
-					stroke="currentColor"
-					stroke-width={5}
+					width="24"
+					height="24"
+					viewBox="0 0 15 15"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+					aria-hidden="true"
+					><path
+						d="M12.8536 2.85355C13.0488 2.65829 13.0488 2.34171 12.8536 2.14645C12.6583 1.95118 12.3417 1.95118 12.1464 2.14645L7.5 6.79289L2.85355 2.14645C2.65829 1.95118 2.34171 1.95118 2.14645 2.14645C1.95118 2.34171 1.95118 2.65829 2.14645 2.85355L6.79289 7.5L2.14645 12.1464C1.95118 12.3417 1.95118 12.6583 2.14645 12.8536C2.34171 13.0488 2.65829 13.0488 2.85355 12.8536L7.5 8.20711L12.1464 12.8536C12.3417 13.0488 12.6583 13.0488 12.8536 12.8536C13.0488 12.6583 13.0488 12.3417 12.8536 12.1464L8.20711 7.5L12.8536 2.85355Z"
+						fill="currentColor"
+						fill-rule="evenodd"
+						clip-rule="evenodd"
+					/></svg
 				>
-					<path d="M 0, 0 L 24, 24 M 0, 24 L 24, 0" />
-				</svg>
 			</button>
 		</header>
 		<details>
@@ -102,8 +107,11 @@
 		background-color: var(--surface-1);
 		border: 1px solid var(--border-2);
 		stroke-width: 5px;
+		font-size: var(--fs-1);
 	}
-
+	svg {
+		stroke-width: 5px;
+	}
 	button:where(:hover, :focus) {
 		color: var(--text-1);
 		background-color: var(--surface-3);

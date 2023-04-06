@@ -3,23 +3,18 @@
 	export let max = 100
 	export let min = 0
 	export let step = 1
-	let currentValue = ''
+	let currentValue: number | undefined = undefined
 	const removeKey = (index: number) => {
 		values = values.filter((_, i) => i !== index)
 	}
-	$: {
-		currentValue = currentValue
-			.replace(/[^\d\s\.]/g, '')
-			.replace(/(?<!\d)[\s\.]+/g, '')
-		const newKeys = currentValue.match(/[0-9.]+(?=\s)/g)
-		if (newKeys) {
-			console.log(
-				newKeys,
-				newKeys.map((k) => Math.max(Math.min(Number(k), max), min))
-			)
-			values = [...values, ...newKeys.map((k) => Number(k))]
-			currentValue = ''
+	const addKey = () => {
+		if (currentValue !== undefined) {
+			values = [...values, Math.max(0, Math.min(max, currentValue))]
+			currentValue = undefined
 		}
+	}
+	const handleKeyDown = ({ code }: KeyboardEvent) => {
+		if (code.includes('Enter') || code === 'Space') addKey()
 	}
 </script>
 
@@ -39,10 +34,15 @@
 		{/each}
 
 		<input
-			type="text"
-			name=""
+			class="newKey"
+			type="number"
+			{max}
+			{min}
+			{step}
 			placeholder="Add key"
 			bind:value={currentValue}
+			on:keydown={handleKeyDown}
+			on:blur={addKey}
 		/>
 	</div>
 </label>
@@ -61,7 +61,7 @@
 		padding-inline: var(--s-xs);
 	}
 
-	input[type='text'] {
+	input.newKey {
 		flex: 1;
 		background-color: transparent;
 		border: 0;

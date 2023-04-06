@@ -2,12 +2,16 @@
 	export let value = 0
 </script>
 
-<fieldset>
-	<legend>Hue {value}°</legend>
+<label>
+	Hue {value}°
 	<input type="range" bind:value min="0" max="360" />
-</fieldset>
+</label>
 
 <style>
+	label {
+		display: grid;
+		gap: var(--s-2xs);
+	}
 	input {
 		appearance: none;
 		width: 100%;
