@@ -1,7 +1,9 @@
 <script lang="ts">
-	import { getCssColor } from '../scripts/css'
+	import { toast } from '@zerodevx/svelte-toast'
+	import { getCssColor } from '../scripts/save/css'
 	import type { Ease } from '../scripts/ease'
 	import { buildPalette } from '../scripts/palette'
+	import { copyToClipBoard } from '../scripts/clipBoard'
 
 	export let steps: number
 	export let hue: number
@@ -18,11 +20,26 @@
 		lightness,
 		lightnessEase,
 	}).map((col) => getCssColor(col))
+
+	const copy = (toCopy: string) => {
+		copyToClipBoard(
+			toCopy,
+			() =>
+				toast.push(`
+			color copied to clipboard
+			`),
+			() => toast.push(`copy failled`)
+		)
+	}
 </script>
 
 <ul>
 	{#each palette as color}
-		<li style="--color: {color};" />
+		<li style="--color: {color};">
+			<button title="click to copy color" on:click={() => copy(color)}>
+				<span class="sr-only">copy-to-clipboard</span>
+			</button>
+		</li>
 	{/each}
 </ul>
 
@@ -31,13 +48,17 @@
 		display: grid;
 		margin: 0;
 		padding: 0;
-		border: 1px solid var(--border-2);
 		grid-auto-flow: column;
 		grid-auto-columns: 1fr;
 		list-style: none;
+		gap: var(--s-3xs);
 	}
-	li {
+	li button {
 		background-color: var(--color);
 		height: 3rem;
+		width: 100%;
+		border: 0;
+		display: block;
+		border: 1px solid var(--border-2);
 	}
 </style>

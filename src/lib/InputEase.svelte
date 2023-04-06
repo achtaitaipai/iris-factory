@@ -21,7 +21,7 @@
 		position: relative;
 		padding-inline: var(--s-2xs);
 		padding-block: var(--s-3xs);
-		border-radius: 0.8rem;
+		/* border-radius: 0.8rem; */
 		border-color: var(--border-2);
 		background-color: var(--surface-2);
 		appearance: none;

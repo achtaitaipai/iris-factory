@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { buildCss } from '../scripts/css'
+	import { buildCss } from '../scripts/save/css'
 	import { getUrlWithData } from '../scripts/dataToUrl'
 	import { buildPalette, type Palette } from '../scripts/palette'
 
@@ -26,6 +26,6 @@
 		padding-inline: var(--s-l);
 		padding-block: var(--s-m);
 		border: 1px solid var(--border-2);
-		border-radius: 0.8rem;
+		/* border-radius: 0.8rem; */
 	}
 </style>

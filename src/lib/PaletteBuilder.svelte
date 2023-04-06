@@ -7,6 +7,7 @@
 	import InputSteps from './InputSteps.svelte'
 	import Palette from './Palette.svelte'
 	export let name = ''
+	export let namePalette: (name: string) => string
 
 	export let steps = 10
 	export let hue = 0
@@ -20,7 +21,7 @@
 <div class="wrapper">
 	<form action="">
 		<header>
-			<PaletteName bind:name />
+			<PaletteName bind:name {namePalette} />
 			<button type="button" on:click={remove} title="remove palette">
 				<svg
 					width="24"
@@ -71,7 +72,7 @@
 		background-color: var(--surface-1);
 		padding-block: var(--s-s);
 		padding-inline: var(--s-m);
-		border-radius: 0.5rem;
+		/* border-radius: 0.5rem; */
 		border: 1px solid var(--border-1);
 	}
 	header {
@@ -101,20 +102,12 @@
 		height: 100%;
 		display: grid;
 		place-items: center;
-		margin-inline: auto;
 		font-weight: bold;
 		line-height: 1;
-		background-color: var(--surface-1);
-		border: 1px solid var(--border-2);
 		stroke-width: 5px;
 		font-size: var(--fs-1);
 	}
 	svg {
 		stroke-width: 5px;
-	}
-	button:where(:hover, :focus) {
-		color: var(--text-1);
-		background-color: var(--surface-3);
-		border: 1px solid var(--border-2);
 	}
 </style>

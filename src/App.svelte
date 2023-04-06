@@ -1,9 +1,11 @@
 <script lang="ts">
-	import CodeOutput from './lib/CodeOutput.svelte'
+	import { SvelteToast } from '@zerodevx/svelte-toast'
+	import CopyBtns from './lib/CopyBtns.svelte'
 	import Header from './lib/Header.svelte'
 	import PaletteBuilder from './lib/PaletteBuilder.svelte'
 	import { getDatasFromUrl } from './scripts/dataToUrl'
 	import type { Palette, PaletteOptions } from './scripts/palette'
+	import { uniqueName } from './scripts/uniqueName'
 	const defaultPalette: PaletteOptions = {
 		chroma: [0.01, 0.2, 0.02],
 		lightness: [95, 20],
@@ -20,7 +22,10 @@
 		palettes = [
 			...palettes,
 			{
-				name: 'color-' + palettes.length,
+				name: uniqueName(
+					'color-0',
+					palettes.map((p) => p.name)
+				),
 
 				...defaultPalette,
 				hue: Math.floor(Math.random() * 360),
@@ -30,10 +35,19 @@
 	const removePalette = (index: number) => {
 		palettes = palettes.filter((_, i) => i !== index)
 	}
+	const namePalette = (name: string) =>
+		uniqueName(
+			name,
+			palettes.map((p) => p.name)
+		)
 </script>
 
 <Header />
-<main>
+<main class="center">
+	<SvelteToast
+		options={{ reversed: true, intro: { y: 192 }, duration: 1000 }}
+	/>
+	<CopyBtns {palettes} />
 	{#each palettes as { name, chroma, lightness, lightnessEase, chromaEase, steps, hue }, index}
 		<PaletteBuilder
 			bind:name
@@ -44,6 +58,7 @@
 			bind:steps
 			bind:hue
 			remove={() => removePalette(index)}
+			{namePalette}
 		/>
 	{/each}
 	<button on:click={addPalette} title="new palette">
@@ -62,14 +77,11 @@
 			/></svg
 		>
 	</button>
-
-	<CodeOutput bind:palettes />
+	<!-- <CodeOutput bind:palettes /> -->
 </main>
 
 <style>
 	main {
-		width: clamp(20rem, 80vw, 60rem);
-		margin-inline: auto;
 		padding-block: var(--s-l);
 		display: grid;
 		gap: var(--s-m);
@@ -81,15 +93,7 @@
 		font-size: var(--fs-1);
 		font-weight: bold;
 		line-height: 1;
-		background-color: var(--surface-1);
-		border: 1px solid var(--border-2);
 		border-radius: 50%;
 		stroke-width: 5px;
-	}
-
-	button:where(:hover, :focus-visible) {
-		color: var(--text-1);
-		background-color: var(--surface-3);
-		border: 1px solid var(--border-2);
 	}
 </style>

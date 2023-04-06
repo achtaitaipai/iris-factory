@@ -4,11 +4,10 @@ import {
 } from 'lz-string'
 import type { Palette } from './palette'
 
-let timer: ReturnType<typeof setTimeout> | undefined = undefined
-
 export const getUrlWithData = (data: string) => {
+	const url = location.protocol + '//' + location.host + location.pathname
 	const compressedData = compress(data)
-	return '?d=' + compressedData
+	return `${url}?d=${compressedData}`
 }
 
 export const getDatasFromUrl = () => {

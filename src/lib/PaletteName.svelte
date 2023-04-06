@@ -1,9 +1,23 @@
 <script lang="ts">
 	export let name: string = ''
+	export let namePalette: (name: string) => string
+	const handleInput = () => {
+		name = name.replace(/[^0-9a-z\-\_]/g, '')
+	}
+	const handleChange = () => {
+		name = namePalette(name)
+	}
 </script>
 
 <div>
-	<input type="text" name="name" placeholder="name" bind:value={name} />
+	<input
+		type="text"
+		name="name"
+		placeholder="name"
+		bind:value={name}
+		on:input={handleInput}
+		on:change={handleChange}
+	/>
 </div>
 
 <style>

@@ -1,0 +1,15 @@
+:root {
+	--toastBarHeight: 0;
+	/* --toastWidth: 50rem; */
+	--toastContainerTop: var(--s-3xl);
+	--toastContainerRight: auto;
+	--toastContainerLeft: calc(50vw - 8rem);
+	/* --toastContainerTop: auto;
+	--toastContainerBottom: var(--s-s);
+	--toastContainerLeft: calc(50vw - 8rem); */
+	--toastBackground: var(--surface-1);
+	--toastColor: var(--text-2);
+	--toastBorderRadius: 0;
+	--toastBorder: 1px solid var(--border-1);
+	--toastBoxShadow: none;
+}

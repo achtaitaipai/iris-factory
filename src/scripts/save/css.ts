@@ -1,5 +1,5 @@
 import Colorjs from 'colorjs.io'
-import type { Color } from './palette'
+import type { Color } from '../palette'
 
 export const buildCss = (
 	palettes: { colors: Color[]; name: string }[],

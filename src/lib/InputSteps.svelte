@@ -13,7 +13,7 @@
 		background-color: var(--surface-2);
 		text-align: center;
 		border: 1px solid var(--border-2);
-		border-radius: 0.8rem;
+		/* border-radius: 0.8rem; */
 	}
 	input:where(:focus, :hover) {
 		border: 1px solid var(--border-3);
