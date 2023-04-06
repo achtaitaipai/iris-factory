@@ -43,7 +43,7 @@
 	const namePalette = (name: string) =>
 		uniqueName(
 			name,
-			palettes.map((p) => p.name)
+			palettes.map((p) => p.name).filter((n) => n !== name)
 		)
 </script>
 
