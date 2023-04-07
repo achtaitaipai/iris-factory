@@ -11,11 +11,11 @@
 	} from './scripts/palette'
 	import { uniqueName } from './scripts/uniqueName'
 	const defaultPalette: PaletteOptions = {
-		chroma: [0.01, 0.2, 0.02],
-		lightness: [95, 20],
-		hue: 260,
-		chromaEase: 'linear',
-		lightnessEase: 'linear',
+		chroma: [0.01, 0.2],
+		lightness: [95, 54],
+		hue: Math.floor(Math.random() * 360),
+		lightnessEase: 'easeInOutSine',
+		chromaEase: 'easeInOutSine',
 		steps: 10,
 	}
 	let palettes: Palette[] = getDatasFromUrl() ?? [
@@ -40,11 +40,12 @@
 	const removePalette = (index: number) => {
 		palettes = palettes.filter((_, i) => i !== index)
 	}
-	const namePalette = (name: string) =>
-		uniqueName(
+	const namePalette = (name: string) => {
+		return uniqueName(
 			name,
-			palettes.map((p) => p.name).filter((n) => n !== name)
+			palettes.map((p) => p.name)
 		)
+	}
 </script>
 
 <Header />

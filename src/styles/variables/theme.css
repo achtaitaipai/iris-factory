@@ -8,12 +8,22 @@
 	--text-3: var(--neutral-8);
 	--text-4: var(--neutral-7);
 
+	--text-accent-1: var(--accent-8);
+	--text-accent-2: var(--accent-9);
+
+	--text-accent-dark-1: var(--accent-5);
+	--text-accent-dark-2: var(--accent-6);
+
 	--border-1: var(--neutral-3);
 	--border-2: var(--neutral-4);
 	--border-3: var(--neutral-5);
 
-	--surface-dark-1: var(--neutral-10);
-	--surface-dark-2: var(--neutral-9);
+	--border-dark1: var(--accent-5);
+
+	--border-accent-dark-1: var(--accent-5);
+
+	--surface-dark-1: var(--neutral-9);
+	--surface-dark-2: var(--neutral-10);
 	--surface-dark-3: var(--neutral-8);
 
 	--text-dark-1: var(--neutral-2);
@@ -38,9 +48,14 @@
 		--text-3: var(--text-dark-3);
 		--text-4: var(--text-dark-4);
 
+		--text-accent-1: var(--text-accent-dark-1);
+		--text-accent-2: var(--text-accent-dark-2);
+
 		--border-1: var(--border-dark-1);
 		--border-2: var(--border-dark-2);
 		--border-3: var(--border-dark-3);
+
+		--border-accent-1: var(--border-accent-dark-1);
 	}
 }
 
@@ -55,7 +70,12 @@
 	--text-3: var(--text-dark-3);
 	--text-4: var(--text-dark-4);
 
+	--text-accent-1: var(--text-accent-dark-1);
+	--text-accent-2: var(--text-accent-dark-2);
+
 	--border-1: var(--border-dark-1);
 	--border-2: var(--border-dark-2);
 	--border-3: var(--border-dark-3);
+
+	--border-accent-1: var(--border-accent-dark-1);
 }

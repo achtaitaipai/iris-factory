@@ -1,13 +1,45 @@
 <script lang="ts">
-	import type { Ease } from '../scripts/ease'
+	import { cubicBezier, type Ease } from '../scripts/ease'
 	import PaletteName from './PaletteName.svelte'
 	import InputHue from './InputHue.svelte'
 	import InputKey from './InputKey.svelte'
 	import InputEase from './InputEase.svelte'
 	import InputSteps from './InputSteps.svelte'
 	import Palette from './Palette.svelte'
+	import { onMount } from 'svelte'
+	import CubicBezierEditor, {
+		type EaseParameter,
+	} from './CubicBezierEditor.svelte'
 	export let name = ''
 	export let namePalette: (name: string) => string
+
+	let lightnessCubic = [
+		[0, 100],
+		[25, 75],
+		[75, 25],
+		[100, 0],
+	] as EaseParameter
+
+	let chromaCubic = [
+		[0, 100],
+		[25, 75],
+		[75, 25],
+		[100, 0],
+	] as EaseParameter
+
+	const prepareValues = (values: EaseParameter) =>
+		values
+			.reduce((acc, val) => acc.concat(val), [])
+			.map((n, i) => (i % 2 === 0 ? n / 100 : n / 100)) as [
+			number,
+			number,
+			number,
+			number,
+			number,
+			number,
+			number,
+			number
+		]
 
 	export let steps = 10
 	export let hue = 0
@@ -16,16 +48,22 @@
 	export let lightness = [10, 100]
 	export let lightnessEase: Ease = 'linear'
 	export let remove = () => {}
+
+	let element: HTMLInputElement
+	onMount(() => {
+		element.focus()
+		element.scrollIntoView()
+	})
 </script>
 
 <div class="wrapper">
 	<form action="">
 		<header>
-			<PaletteName bind:name {namePalette} />
+			<PaletteName bind:name {namePalette} bind:input={element} />
 			<button type="button" on:click={remove} title="remove palette">
 				<svg
-					width="24"
-					height="24"
+					width="1em"
+					height="1em"
 					viewBox="0 0 15 15"
 					fill="none"
 					xmlns="http://www.w3.org/2000/svg"
@@ -42,8 +80,12 @@
 		<details>
 			<summary>Settings</summary>
 			<div class="details-content">
-				<InputSteps bind:value={steps} />
-				<InputHue bind:value={hue} />
+				<div>
+					<InputSteps bind:value={steps} />
+				</div>
+				<div>
+					<InputHue bind:value={hue} />
+				</div>
 				<fieldset>
 					<legend>Lightness :</legend>
 					<InputKey bind:values={lightness} />
@@ -54,6 +96,15 @@
 					<InputKey bind:values={chroma} max={0.4} step={0.01} />
 					<InputEase bind:value={chromaEase} />
 				</fieldset>
+				<div>
+					<CubicBezierEditor bind:values={lightnessCubic} />
+					{cubicBezier(0.5, ...lightnessCubic)}
+					{prepareValues(lightnessCubic).join(', ')}
+				</div>
+				<div>
+					<CubicBezierEditor bind:values={chromaCubic} />
+					{chromaCubic.join(', ')}
+				</div>
 			</div>
 		</details>
 	</form>
@@ -74,13 +125,13 @@
 		padding-inline: var(--s-m);
 		/* border-radius: 0.5rem; */
 		border: 1px solid var(--border-1);
+		inline-size: 100%;
 	}
 	header {
 		display: flex;
 		align-items: center;
 		gap: var(--s-s);
 	}
-	.details-content,
 	fieldset {
 		display: grid;
 		gap: var(--s-s);
@@ -93,19 +144,28 @@
 		margin-block: var(--s-s);
 	}
 	.details-content {
+		--gap: var(--s-l);
+		gap: var(--gap);
 		padding-inline: var(--s-s);
 		padding-block: var(--s-s);
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+	}
+	.details-content > * {
+		flex-basis: max(50% - var(--gap), 30rem);
+		flex-grow: 1;
+		flex-shrink: 0;
+		width: 40%;
 	}
 	button {
-		width: auto;
-		aspect-ratio: 1;
-		height: 100%;
+		height: calc(1.7 * var(--fs-1));
+		width: calc(1.7 * var(--fs-1));
 		display: grid;
 		place-items: center;
 		font-weight: bold;
 		line-height: 1;
-		stroke-width: 5px;
-		font-size: var(--fs-1);
+		font-size: var(--fs-0);
 	}
 	svg {
 		stroke-width: 5px;

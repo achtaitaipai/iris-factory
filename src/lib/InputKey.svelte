@@ -85,7 +85,7 @@
 		text-align: center;
 		background-color: transparent;
 	}
-	.key:where(:hover, :focus-within) {
+	.key input:where(:hover, :focus-within) {
 		background-color: var(--surface-2);
 		outline: 1px solid var(--border-3);
 	}
@@ -98,5 +98,7 @@
 
 	.key button:where(:hover, :focus) {
 		color: var(--text-1);
+		background-color: var(--surface-2);
+		outline: 1px solid var(--border-3);
 	}
 </style>

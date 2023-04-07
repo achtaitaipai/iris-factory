@@ -33,7 +33,6 @@ fieldset {
 	border: 1px solid var(--border-3);
 }
 legend {
-	/* font-size: var(--fs--1); */
 	font-style: italic;
 }
 
@@ -44,13 +43,13 @@ button {
 }
 
 button:where(:hover, :focus-visible) {
-	color: var(--accent-7);
+	color: var(--text-accent-1);
 	background-color: var(--surface-1);
-	border-color: var(--accent-5);
+	border-color: var(--border-accent-1);
 }
 
 .center > *:not(.full-bleed) {
-	max-inline-size: clamp(20rem, 80vw, 60rem);
+	max-inline-size: clamp(20rem, 95vw, 85rem);
 	margin-inline: auto;
 }
 

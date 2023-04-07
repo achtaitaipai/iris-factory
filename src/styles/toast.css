@@ -8,8 +8,8 @@
 	--toastContainerBottom: var(--s-s);
 	--toastContainerLeft: calc(50vw - 8rem); */
 	--toastBackground: var(--surface-1);
-	--toastColor: var(--text-2);
+	--toastColor: var(--text-accent-1);
 	--toastBorderRadius: 0;
-	--toastBorder: 1px solid var(--border-1);
+	--toastBorder: 1px solid var(--accent-5);
 	--toastBoxShadow: none;
 }

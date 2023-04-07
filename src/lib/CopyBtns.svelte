@@ -13,7 +13,9 @@
 			name: p.name,
 			colors: buildPalette(p),
 		}))
-		const css = buildCss(datas)
+		const css = `/*  ${getUrlWithData(
+			JSON.stringify(palettes)
+		)} */ \n ${buildCss(datas)}`
 		copyToClipBoard(
 			css,
 			() =>
@@ -126,7 +128,12 @@
 		gap: var(--s-2xs);
 	}
 	button:where(:hover, :focus) {
-		color: var(--accent-7);
-		border-color: var(--accent-5);
+		color: var(--text-accent-2);
+		border-color: var(--border-accent-1);
+	}
+	@media (max-width: 28rem) {
+		svg {
+			display: none;
+		}
 	}
 </style>

@@ -1,5 +1,7 @@
 <header>
-	<h1>Iris Factory</h1>
+	<h1>
+		<a href="./"> Iris-Factory </a>
+	</h1>
 	<nav>
 		<a
 			href="https://github.com/achtaitaipai/iris-factory#readme"
@@ -26,8 +28,27 @@
 		background-color: var(--surface-1);
 		border-bottom: 1px solid var(--border-2);
 	}
-	h1 {
-		color: var(--accent-10);
+	h1 a {
+		color: var(--text-accent-1);
+	}
+
+	h1 a:where(:hover, :focus-visible) {
+		color: var(--text-accent-2);
+	}
+	@supports (background-clip: text) or (-webkit-background-clip: text) {
+		h1 a {
+			background-image: linear-gradient(
+				to bottom right,
+				var(--text-accent-2) 30%,
+				var(--surface-1) 100%
+			);
+			background-clip: text;
+			-webkit-background-clip: text;
+			color: transparent;
+		}
+		h1 a:where(:hover, :focus-visible) {
+			color: transparent;
+		}
 	}
 	nav a {
 		color: var(--text-3);
@@ -35,6 +56,6 @@
 	}
 
 	nav a:where(:hover, :focus) {
-		color: var(--accent-7);
+		color: var(--text-accent-2);
 	}
 </style>

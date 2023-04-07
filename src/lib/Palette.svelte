@@ -51,14 +51,17 @@
 		grid-auto-flow: column;
 		grid-auto-columns: 1fr;
 		list-style: none;
-		gap: var(--s-3xs);
+		gap: 1px;
+		border: 1px solid var(--border-1);
 	}
 	li button {
 		background-color: var(--color);
-		height: 3rem;
+		height: 2rem;
 		width: 100%;
 		border: 0;
 		display: block;
-		border: 1px solid var(--border-2);
+	}
+	li button:where(:hover, :focus-visible) {
+		transform: scale(1.05);
 	}
 </style>

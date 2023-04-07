@@ -1,15 +1,14 @@
-/* http://localhost:5173/iris-factory?d=NobwRAdghgtgpmAXJOBXALgJygGzAGjAGMALTAexiiWAAYA6WgRgF1CcBLAcxPQjgDOAmgE4ArPgBMtNmBKoEiAMwAWEYVIUqAUSgDFYOHrgBJCAGUO-AmE48+ggbv1JDxs5euEB6OAAdhRCZaAF98cGh4VygiIjgIdBtNSmpEOkYmfAZJWTtefiFRCTEAdll5RVV1YjIU5wMjfTMAeQxPBHZufMd610bTCFb0dpsff0DgkJYgA */
-
+/*  http://localhost:5173/iris-factory?d=NobwRAdghgtgpmAXJOBXALgJygGzAGjAGMALTAexiiWAAYA6WgRgF1CcBLAcxPQjgDOAmgE4ArPgBMtNmBKoEiAMwAWEYVIUqAUSgDFYOHrgBJCAGUO-AmE48+ggbv1JDxswHkMARVRQAJjYC6HAADsKITLQAvvjg0PCuUEREcBDoNpqU1Ih0jEz4DJKydrz8QqISYgDssvKKqurEZNnOBkb6nhiW1uzcZY5trh2mEF7oPQiEwWERUdEsQA */
 :root {
 	--neutral-1: #f4ecef;
-	--neutral-2: #f0e8ec;
-	--neutral-3: #e5dde0;
-	--neutral-4: #d3cbce;
-	--neutral-5: #bbb3b7;
-	--neutral-6: #9e969a;
-	--neutral-7: #7e767a;
-	--neutral-8: #5c5558;
-	--neutral-9: #3a3336;
+	--neutral-2: #eee6e9;
+	--neutral-3: #dcd4d7;
+	--neutral-4: #beb6b9;
+	--neutral-5: #958e91;
+	--neutral-6: #676063;
+	--neutral-7: #433d40;
+	--neutral-8: #2b2528;
+	--neutral-9: #1e181b;
 	--neutral-10: #1a1417;
 	--accent-1: #f4ecef;
 	--accent-2: #f3e7ec;
