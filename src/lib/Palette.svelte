@@ -1,24 +1,20 @@
 <script lang="ts">
 	import { toast } from '@zerodevx/svelte-toast'
-	import { getCssColor } from '../scripts/save/css'
-	import type { Ease } from '../scripts/ease'
-	import { buildPalette } from '../scripts/palette'
 	import { copyToClipBoard } from '../scripts/clipBoard'
+	import type { EaseParameter } from '../scripts/cubicBezier'
+	import { buildPalette } from '../scripts/palette'
+	import { getCssColor } from '../scripts/save/css'
 
 	export let steps: number
 	export let hue: number
-	export let chroma: number[]
-	export let chromaEase: Ease
-	export let lightness: number[]
-	export let lightnessEase: Ease
+	export let chroma: EaseParameter
+	export let lightness: EaseParameter
 	let palette: string[] = []
 	$: palette = buildPalette({
 		steps,
 		hue,
 		chroma,
-		chromaEase,
 		lightness,
-		lightnessEase,
 	}).map((col) => getCssColor(col))
 
 	const copy = (toCopy: string) => {

@@ -1,11 +1,6 @@
-<script lang="ts" context="module">
-	type Point = [number, number]
-	export type EaseParameter = [Point, Point, Point, Point]
-	//
-</script>
-
 <script lang="ts">
 	import { asDraggable } from 'svelte-drag-and-drop-actions'
+	import type { EaseParameter } from '../scripts/cubicBezier'
 	let width: number
 	export let values: EaseParameter = [
 		[0, 100],
@@ -74,7 +69,7 @@
 	}
 	.wrapper {
 		position: relative;
-		max-inline-size: 60vmin;
+		max-inline-size: 40vmin;
 		margin-inline: auto;
 	}
 	svg {

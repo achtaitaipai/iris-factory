@@ -11,11 +11,19 @@
 	} from './scripts/palette'
 	import { uniqueName } from './scripts/uniqueName'
 	const defaultPalette: PaletteOptions = {
-		chroma: [0.01, 0.2],
-		lightness: [95, 54],
+		chroma: [
+		[0, 100],
+		[30, 25],
+		[60, 60],
+		[100, 50],
+	],
+		lightness: [
+		[0, 0],
+		[25, 25],
+		[90, 40],
+		[100, 50],
+	],
 		hue: Math.floor(Math.random() * 360),
-		lightnessEase: 'easeInOutSine',
-		chromaEase: 'easeInOutSine',
 		steps: 10,
 	}
 	let palettes: Palette[] = getDatasFromUrl() ?? [
@@ -54,17 +62,19 @@
 		options={{ reversed: true, intro: { y: 192 }, duration: 1000 }}
 	/>
 	<CopyBtns {palettes} />
-	{#each palettes as { name, chroma, lightness, lightnessEase, chromaEase, steps, hue }, index}
+	{#each palettes as { name, chroma, lightness,  steps, hue }, index}
 		<PaletteBuilder
 			bind:name
 			bind:chroma
 			bind:lightness
-			bind:lightnessEase
-			bind:chromaEase
 			bind:steps
 			bind:hue
 			remove={() => removePalette(index)}
-			{namePalette}
+			namePalette={()=>uniqueName(
+				name,
+				palettes.map((p) => p.name),
+				index
+			)}
 		/>
 	{/each}
 	<button on:click={addPalette} title="new palette">

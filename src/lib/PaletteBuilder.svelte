@@ -1,52 +1,23 @@
 <script lang="ts">
-	import { cubicBezier, type Ease } from '../scripts/ease'
-	import PaletteName from './PaletteName.svelte'
+	import { onMount } from 'svelte'
+	import { cubicBezier, type EaseParameter } from '../scripts/cubicBezier'
+	import CubicBezierEditor from './CubicBezierEditor.svelte'
 	import InputHue from './InputHue.svelte'
-	import InputKey from './InputKey.svelte'
-	import InputEase from './InputEase.svelte'
 	import InputSteps from './InputSteps.svelte'
 	import Palette from './Palette.svelte'
-	import { onMount } from 'svelte'
-	import CubicBezierEditor, {
-		type EaseParameter,
-	} from './CubicBezierEditor.svelte'
+	import PaletteName from './PaletteName.svelte'
 	export let name = ''
 	export let namePalette: (name: string) => string
 
-	let lightnessCubic = [
-		[0, 100],
-		[25, 75],
-		[75, 25],
-		[100, 0],
-	] as EaseParameter
-
-	let chromaCubic = [
-		[0, 100],
-		[25, 75],
-		[75, 25],
-		[100, 0],
-	] as EaseParameter
-
-	const prepareValues = (values: EaseParameter) =>
-		values
-			.reduce((acc, val) => acc.concat(val), [])
-			.map((n, i) => (i % 2 === 0 ? n / 100 : n / 100)) as [
-			number,
-			number,
-			number,
-			number,
-			number,
-			number,
-			number,
-			number
-		]
-
 	export let steps = 10
 	export let hue = 0
-	export let chroma = [0, 0.2, 0]
-	export let chromaEase: Ease = 'linear'
-	export let lightness = [10, 100]
-	export let lightnessEase: Ease = 'linear'
+	export let chroma:EaseParameter = [[0,1],[0,1],[1,0],[1,0]]
+	export let lightness:EaseParameter = [
+		[0, 100],
+		[25, 75],
+		[75, 25],
+		[100, 0],
+	]
 	export let remove = () => {}
 
 	let element: HTMLInputElement
@@ -77,7 +48,7 @@
 				>
 			</button>
 		</header>
-		<details>
+		<details open>
 			<summary>Settings</summary>
 			<div class="details-content">
 				<div>
@@ -86,24 +57,11 @@
 				<div>
 					<InputHue bind:value={hue} />
 				</div>
-				<fieldset>
-					<legend>Lightness :</legend>
-					<InputKey bind:values={lightness} />
-					<InputEase bind:value={lightnessEase} />
-				</fieldset>
-				<fieldset>
-					<legend>Chroma :</legend>
-					<InputKey bind:values={chroma} max={0.4} step={0.01} />
-					<InputEase bind:value={chromaEase} />
-				</fieldset>
 				<div>
-					<CubicBezierEditor bind:values={lightnessCubic} />
-					{cubicBezier(0.5, ...lightnessCubic)}
-					{prepareValues(lightnessCubic).join(', ')}
+					<CubicBezierEditor  bind:values={lightness}/>
 				</div>
 				<div>
-					<CubicBezierEditor bind:values={chromaCubic} />
-					{chromaCubic.join(', ')}
+					<CubicBezierEditor bind:values={chroma} />
 				</div>
 			</div>
 		</details>
@@ -113,8 +71,6 @@
 		bind:steps
 		bind:chroma
 		bind:lightness
-		bind:chromaEase
-		bind:lightnessEase
 	/>
 </div>
 
@@ -132,11 +88,6 @@
 		align-items: center;
 		gap: var(--s-s);
 	}
-	fieldset {
-		display: grid;
-		gap: var(--s-s);
-	}
-
 	summary {
 		font-size: var(--fs-2);
 	}

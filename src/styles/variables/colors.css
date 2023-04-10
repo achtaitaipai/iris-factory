@@ -1,23 +1,23 @@
-/*  http://localhost:5173/iris-factory?d=NobwRAdghgtgpmAXJOBXALgJygGzAGjAGMALTAexiiWAAYA6WgRgF1CcBLAcxPQjgDOAmgE4ArPgBMtNmBKoEiAMwAWEYVIUqAUSgDFYOHrgBJCAGUO-AmE48+ggbv1JDxswHkMARVRQAJjYC6HAADsKITLQAvvjg0PCuUEREcBDoNpqU1Ih0jEz4DJKydrz8QqISYgDssvKKqurEZNnOBkb6nhiW1uzcZY5trh2mEF7oPQiEwWERUdEsQA */
-:root {
-	--neutral-1: #f4ecef;
-	--neutral-2: #eee6e9;
-	--neutral-3: #dcd4d7;
-	--neutral-4: #beb6b9;
-	--neutral-5: #958e91;
-	--neutral-6: #676063;
-	--neutral-7: #433d40;
-	--neutral-8: #2b2528;
-	--neutral-9: #1e181b;
-	--neutral-10: #1a1417;
-	--accent-1: #f4ecef;
-	--accent-2: #f3e7ec;
-	--accent-3: #f1d8e3;
-	--accent-4: #edc1d5;
-	--accent-5: #e7a4c4;
-	--accent-6: #df86b3;
-	--accent-7: #d668a2;
-	--accent-8: #ce4e95;
-	--accent-9: #c83a8d;
-	--accent-10: #c5328a;
+/*  http://localhost:5173/iris-factory?d=NobwRAdghgtgpmAXJOBXALgJygGzAGjAGMALTAexiiWGAAZ8AOOgOkYE5HGB2ANgBY6-fu34BmbgF18wMfxb8ArL3YAmLmI6KAjGO35e2lkMa8Ouxor7dG04N3YK6dbiLq8xvbkNVNebdgsrLwc6VSkZbWd8NTZGTXYdPTpTbUVJaTAcAEsAcxJ0CDgAZ2KaeiYWQ35VMVVVOnZuCUZ1O1V-bVrFRMU6ZW0HRnxtI0MTM0DNYPY7b2MJJT14xQbFYYkWFvDuNLFFdaE7KIZ5m14dM0Uxdjr1jMISVAREff5CYvQ4AAcyxCiAL74cCkChUcoMSzGbQ8Do9Qa8OhiOxyBTKNQaLS6fSMeQddi8XiqNS6fjxbR2IksRT8MzaAQOQQuWkGVQsQb1XECfjaUTcGnHaJKLYw-ZrdhqPqzTI5fKFEp-WgMRRVQZNfnqFKcHgoxhsYLcUIdVQc96jFjdXr9QwOQ38Ow6EUpaq1eqNZT4GosCVEml0hlqQUMHnU5pIiQuUw6KSZJ4vKIfL6-JAJyCwF5gKBEIhwCDoMAAyRAA */ 
+:root{
+    --neutral-1 : #ffd1e5;
+    --neutral-2 : #ffc4de;
+    --neutral-3 : #ffb2d3;
+    --neutral-4 : #f4a1c2;
+    --neutral-5 : #de91b0;
+    --neutral-6 : #c47f9b;
+    --neutral-7 : #a36b81;
+    --neutral-8 : #825768;
+    --neutral-9 : #5d404c;
+    --neutral-10 : #37262d;
+    --accent-1 : #ffe1e5;
+    --accent-2 : #ffd6dc;
+    --accent-3 : #ffc3cb;
+    --accent-4 : #f7acb7;
+    --accent-5 : #e7919e;
+    --accent-6 : #dc7587;
+    --accent-7 : #d65e76;
+    --accent-8 : #d34969;
+    --accent-9 : #d63461;
+    --accent-10 : #dd205d;
 }
