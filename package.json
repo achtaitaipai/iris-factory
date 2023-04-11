@@ -9,7 +9,7 @@
 		"preview": "vite preview",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"format": "prettier . --write",
-		"pages": "pnpm build && gh-pages -d dist"
+		"pages": "pnpm build && gh-pages -d iris-factory"
 	},
 	"devDependencies": {
 		"@sveltejs/vite-plugin-svelte": "^2.0.3",
