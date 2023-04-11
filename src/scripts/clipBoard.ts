@@ -4,7 +4,6 @@ export const copyToClipBoard = async (
 	onFailed?: () => void
 ) => {
 	if (!navigator?.clipboard) {
-		// toast.push('Clipboard not supported')
 		if (onFailed) onFailed()
 		return false
 	}

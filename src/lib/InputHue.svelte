@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let value = 0
+	export let value:number 
 </script>
 
 <label>
@@ -11,14 +11,13 @@
 	label {
 		display: grid;
 		gap: var(--s-2xs);
+		/* width: 20rem; */
 	}
 	input {
 		appearance: none;
-		width: 100%;
 	}
 	input::-webkit-slider-thumb {
 		appearance: none;
-		/* background-color: red; */
 		height: 120%;
 		width: 8px;
 		aspect-ratio: 1;

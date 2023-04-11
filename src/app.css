@@ -49,7 +49,7 @@ button:where(:hover, :focus-visible) {
 }
 
 .center > *:not(.full-bleed) {
-	max-inline-size: clamp(20rem, 95vw, 85rem);
+	max-inline-size: clamp(20rem, 80vw, 65rem);
 	margin-inline: auto;
 }
 

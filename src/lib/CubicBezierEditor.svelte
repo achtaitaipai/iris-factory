@@ -69,7 +69,8 @@
 	}
 	.wrapper {
 		position: relative;
-		max-inline-size: 40vmin;
+		/* max-inline-size: 20rem; */
+		inline-size:min(20rem,100%);
 		margin-inline: auto;
 	}
 	svg {

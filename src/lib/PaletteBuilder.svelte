@@ -1,37 +1,43 @@
 <script lang="ts">
 	import { onMount } from 'svelte'
-	import { cubicBezier, type EaseParameter } from '../scripts/cubicBezier'
 	import CubicBezierEditor from './CubicBezierEditor.svelte'
 	import InputHue from './InputHue.svelte'
 	import InputSteps from './InputSteps.svelte'
 	import Palette from './Palette.svelte'
 	import PaletteName from './PaletteName.svelte'
-	export let name = ''
-	export let namePalette: (name: string) => string
+	import { palettes } from '../scripts/store/palette'
+	import { uniqueName } from '../scripts/uniqueName'
+	
+	export let index:number
 
-	export let steps = 10
-	export let hue = 0
-	export let chroma:EaseParameter = [[0,1],[0,1],[1,0],[1,0]]
-	export let lightness:EaseParameter = [
-		[0, 100],
-		[25, 75],
-		[75, 25],
-		[100, 0],
-	]
-	export let remove = () => {}
+	const palette = $palettes[index]
+
+	const namePalette = () =>
+				uniqueName(
+					palette.name,
+					$palettes.map((p) => p.name),
+					index
+				)
+
 
 	let element: HTMLInputElement
+	
 	onMount(() => {
 		element.focus()
 		element.scrollIntoView()
 	})
+
+	const removePalette = (index:number)=>palettes.update(pals=>pals.filter((_,i)=>i!==index))
 </script>
 
 <div class="wrapper">
 	<form action="">
 		<header>
-			<PaletteName bind:name {namePalette} bind:input={element} />
-			<button type="button" on:click={remove} title="remove palette">
+			<PaletteName bind:name={$palettes[index].name} {namePalette} bind:input={element} />
+			<button type="button" on:click={()=>{
+				removePalette(index)
+				
+				 }} title="remove palette">
 				<svg
 					width="1em"
 					height="1em"
@@ -48,29 +54,29 @@
 				>
 			</button>
 		</header>
-		<details open>
+		<details>
 			<summary>Settings</summary>
 			<div class="details-content">
 				<div>
-					<InputSteps bind:value={steps} />
+					<InputSteps bind:value={palette.steps} />
 				</div>
 				<div>
-					<InputHue bind:value={hue} />
+					<InputHue bind:value={palette.hue} />
 				</div>
 				<div>
-					<CubicBezierEditor  bind:values={lightness}/>
+					<CubicBezierEditor  bind:values={palette.lightness}/>
 				</div>
 				<div>
-					<CubicBezierEditor bind:values={chroma} />
+					<CubicBezierEditor bind:values={palette.chroma} />
 				</div>
 			</div>
 		</details>
 	</form>
 	<Palette
-		bind:hue
-		bind:steps
-		bind:chroma
-		bind:lightness
+		hue={palette.hue}
+		steps={palette.steps}
+		chroma={palette.chroma}
+		lightness={palette.lightness}
 	/>
 </div>
 
@@ -79,7 +85,6 @@
 		background-color: var(--surface-1);
 		padding-block: var(--s-s);
 		padding-inline: var(--s-m);
-		/* border-radius: 0.5rem; */
 		border: 1px solid var(--border-1);
 		inline-size: 100%;
 	}
@@ -104,10 +109,9 @@
 		align-items: center;
 	}
 	.details-content > * {
-		flex-basis: max(50% - var(--gap), 30rem);
+		flex-basis: max(50% - var(--gap), 15rem);
 		flex-grow: 1;
 		flex-shrink: 0;
-		width: 40%;
 	}
 	button {
 		height: calc(1.7 * var(--fs-1));

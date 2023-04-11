@@ -3,81 +3,25 @@
 	import CopyBtns from './lib/CopyBtns.svelte'
 	import Header from './lib/Header.svelte'
 	import PaletteBuilder from './lib/PaletteBuilder.svelte'
-	import { getDatasFromUrl } from './scripts/dataToUrl'
-	import {
-		clonePaletteOptions,
-		type Palette,
-		type PaletteOptions,
-	} from './scripts/palette'
-	import { uniqueName } from './scripts/uniqueName'
-	const defaultPalette: PaletteOptions = {
-		chroma: [
-		[0, 100],
-		[30, 25],
-		[60, 60],
-		[100, 50],
-	],
-		lightness: [
-		[0, 0],
-		[25, 25],
-		[90, 40],
-		[100, 50],
-	],
-		hue: Math.floor(Math.random() * 360),
-		steps: 10,
-	}
-	let palettes: Palette[] = getDatasFromUrl() ?? [
-		{ name: 'color-0', ...defaultPalette },
-	]
-
-	const addPalette = () => {
-		palettes = [
-			...palettes,
-			{
-				...clonePaletteOptions(
-					palettes[palettes.length - 1] ?? defaultPalette
-				),
-				hue: Math.floor(Math.random() * 360),
-				name: uniqueName(
-					'color-0',
-					palettes.map((p) => p.name)
-				),
-			},
-		]
-	}
-	const removePalette = (index: number) => {
-		palettes = palettes.filter((_, i) => i !== index)
-	}
-	const namePalette = (name: string) => {
-		return uniqueName(
-			name,
-			palettes.map((p) => p.name)
-		)
-	}
+	import { addPalette, palettes } from './scripts/store/palette'
 </script>
 
 <Header />
 <main class="center">
+
 	<SvelteToast
 		options={{ reversed: true, intro: { y: 192 }, duration: 1000 }}
 	/>
-	<CopyBtns {palettes} />
-	{#each palettes as { name, chroma, lightness,  steps, hue }, index}
+
+	<CopyBtns palettes={$palettes} />
+
+	{#each $palettes as { name, chroma, lightness, steps, hue }, index}
 		<PaletteBuilder
-			bind:name
-			bind:chroma
-			bind:lightness
-			bind:steps
-			bind:hue
-			remove={() => removePalette(index)}
-			namePalette={()=>uniqueName(
-				name,
-				palettes.map((p) => p.name),
-				index
-			)}
+			{index}
 		/>
 	{/each}
-	<button on:click={addPalette} title="new palette">
+
+	<button on:click={()=>addPalette()} title="new palette">
 		<svg
 			width="1em"
 			height="1em"
@@ -93,7 +37,7 @@
 			/></svg
 		>
 	</button>
-	<!-- <CodeOutput bind:palettes /> -->
+
 </main>
 
 <style>

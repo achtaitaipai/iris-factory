@@ -17,8 +17,8 @@ export type Color = {
 export const clonePaletteOptions = (
 	palette: PaletteOptions
 ): PaletteOptions => ({
-	chroma: [...palette.chroma],
-	lightness: [...palette.lightness],
+	chroma: [...palette.chroma.map(itm=>[itm[0],itm[1]])] as EaseParameter,
+	lightness: [...palette.lightness.map(itm=>[itm[0],itm[1]])] as EaseParameter,
 	hue: palette.hue,
 	steps: palette.steps,
 })
@@ -32,7 +32,6 @@ export const buildPalette = ({
 	const colors: Color[] = []
 	const lightnessCurve = cubicBezier(lightness,steps)
 	const chromaCurve = cubicBezier(chroma,steps)
-	console.log(lightnessCurve)
 	for (let i = 0; i < steps; i++) {
 		const l = lightnessCurve[i] * 100
 		const c = chromaCurve[i] * 0.4

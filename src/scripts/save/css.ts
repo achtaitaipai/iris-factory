@@ -21,7 +21,7 @@ const colorsToCssVariables = (
 	const css = palette.reduce(
 		(str, color, index) =>
 			str +
-			`    --${name}-${index + 1} : ${getCssColor(color, format)};\n`,
+			`    --${name}-${index} : ${getCssColor(color, format)};\n`,
 		''
 	)
 	return css

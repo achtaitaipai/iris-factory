@@ -1,23 +1,23 @@
-/*  http://localhost:5173/iris-factory?d=NobwRAdghgtgpmAXJOBXALgJygGzAGjAGMALTAexiiWGAAZ8AOOgOkYE5HGB2ANgBY6-fu34BmbgF18wMfxb8ArL3YAmLmI6KAjGO35e2lkMa8Ouxor7dG04N3YK6dbiLq8xvbkNVNebdgsrLwc6VSkZbWd8NTZGTXYdPTpTbUVJaTAcAEsAcxJ0CDgAZ2KaeiYWQ35VMVVVOnZuCUZ1O1V-bVrFRMU6ZW0HRnxtI0MTM0DNYPY7b2MJJT14xQbFYYkWFvDuNLFFdaE7KIZ5m14dM0Uxdjr1jMISVAREff5CYvQ4AAcyxCiAL74cCkChUcoMSzGbQ8Do9Qa8OhiOxyBTKNQaLS6fSMeQddi8XiqNS6fjxbR2IksRT8MzaAQOQQuWkGVQsQb1XECfjaUTcGnHaJKLYw-ZrdhqPqzTI5fKFEp-WgMRRVQZNfnqFKcHgoxhsYLcUIdVQc96jFjdXr9QwOQ38Ow6EUpaq1eqNZT4GosCVEml0hlqQUMHnU5pIiQuUw6KSZJ4vKIfL6-JAJyCwF5gKBEIhwCDoMAAyRAA */ 
+/*  http://localhost:5173/iris-factory?d=NobwRAdghgtgpmAXJOBXALgJygGzAGjAGMALTAexiiWGAAZ8BOAdgDoBGADmYFYBdfMABMAFlZDG7RnTrMR0gGwBmBQpFMFrZgroTGCoTxELOXAcGaNWImXMUrmdEUPydNnSUs49tzS7uZzdhkmIVZOTi9GHnYlYLd2fgEwHABLAHMSdAg4AGdcmnp8MRNecyUrLxEVJQkeCLp2BSZWJRERHgVGIQiomP5BR1Y6JTkeOMieITp6-FHW5k4hP0SlHnqnIJDuYZUYk3HGWvq+ZJJUBEQ19TBc9DgABwLEYIBffHBSCipChm9hrjMIQKHiSbQjcpiDpdHqRDwxOKuMTA-QGbqxESRdjmAysIwmJoiSw2WTGfC49hAnrGdpSIlGLYMDqtLhraag7o8OiMU6ENKZbJ5Z60Bg8VgKSksXg9OgeCKBQRCMLSziyxjytROHj4dglOgKOSJZhKEajWTmLl4iWWPxTVUeZhzJTi2rRBq69XBBSM4rsPHG02ORYgym8sDnS7BQh3R7PKOQWCXMBQIhEOAQdBgV58IA */ 
 :root{
-    --neutral-1 : #ffd1e5;
-    --neutral-2 : #ffc4de;
-    --neutral-3 : #ffb2d3;
-    --neutral-4 : #f4a1c2;
-    --neutral-5 : #de91b0;
-    --neutral-6 : #c47f9b;
-    --neutral-7 : #a36b81;
-    --neutral-8 : #825768;
-    --neutral-9 : #5d404c;
-    --neutral-10 : #37262d;
-    --accent-1 : #ffe1e5;
-    --accent-2 : #ffd6dc;
-    --accent-3 : #ffc3cb;
-    --accent-4 : #f7acb7;
-    --accent-5 : #e7919e;
-    --accent-6 : #dc7587;
-    --accent-7 : #d65e76;
-    --accent-8 : #d34969;
-    --accent-9 : #d63461;
-    --accent-10 : #dd205d;
+    --neutral-0 : #f6edf0;
+    --neutral-1 : #f1e5e9;
+    --neutral-2 : #e7d9de;
+    --neutral-3 : #dac8ce;
+    --neutral-4 : #c6b0b8;
+    --neutral-5 : #ad959e;
+    --neutral-6 : #8c737c;
+    --neutral-7 : #664d56;
+    --neutral-8 : #3c262f;
+    --neutral-9 : #100408;
+    --accent-0 : #ffe1e5;
+    --accent-1 : #ffcbd2;
+    --accent-2 : #f6b8c0;
+    --accent-3 : #eda3ad;
+    --accent-4 : #e58e9b;
+    --accent-5 : #e17a8c;
+    --accent-6 : #de667d;
+    --accent-7 : #dd5271;
+    --accent-8 : #dd3b66;
+    --accent-9 : #dd205d;
 }
