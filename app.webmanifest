@@ -23,7 +23,7 @@
 			"type": "image/png"
 		}
 	],
-	"start_url": "/iris-factory/index.html",
+	"start_url": "/iris-factory/",
 	"display": "fullscreen",
 	"theme_color": "#f6edf0",
 	"background_color": "#dd205d"
