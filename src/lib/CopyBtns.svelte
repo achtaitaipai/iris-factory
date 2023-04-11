@@ -5,16 +5,16 @@
 	import { buildPalette, type Palette } from '../scripts/palette'
 	import { buildJson } from '../scripts/save/json'
 	import { getUrlWithData } from '../scripts/dataToUrl'
+	import { palettes } from '../scripts/store/palette'
 
-	export let palettes: Palette[]
 
 	const copyCss = () => {
-		const datas = palettes.map((p) => ({
+		const datas = $palettes.map((p) => ({
 			name: p.name,
 			colors: buildPalette(p),
 		}))
 		const css = `/*  ${getUrlWithData(
-			JSON.stringify(palettes)
+			JSON.stringify($palettes)
 		)} */ \n ${buildCss(datas)}`
 		copyToClipBoard(
 			css,
@@ -27,7 +27,7 @@
 	}
 
 	const copyJson = () => {
-		const datas = palettes.map((p) => ({
+		const datas = $palettes.map((p) => ({
 			name: p.name,
 			colors: buildPalette(p),
 		}))
@@ -43,7 +43,7 @@
 	}
 
 	const copyUrl = () => {
-		const url = getUrlWithData(JSON.stringify(palettes))
+		const url = getUrlWithData(JSON.stringify($palettes))
 		copyToClipBoard(
 			url,
 			() =>
@@ -111,16 +111,11 @@
 </div>
 
 <style>
-	.full-bleed {
-		position: sticky;
-		top: 0;
-		padding-block: var(--s-s);
-		z-index: 10;
-		background-color: var(--surface-2);
-	}
+	
 	.flex {
-		justify-content: space-evenly;
 		display: flex;
+		gap: var(--s-s);
+		flex-wrap: wrap;
 	}
 	button {
 		display: flex;
@@ -131,9 +126,10 @@
 		color: var(--text-accent-2);
 		border-color: var(--border-accent-1);
 	}
-	@media (max-width: 28rem) {
+	@media (max-width: 60rem) {
 		svg {
 			display: none;
 		}
 	}
 </style>
+

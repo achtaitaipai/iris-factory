@@ -13,7 +13,7 @@
 		options={{ reversed: true, intro: { y: 192 }, duration: 1000 }}
 	/>
 
-	<CopyBtns palettes={$palettes} />
+	<CopyBtns />
 
 	{#each $palettes as { name, chroma, lightness, steps, hue }, index}
 		<PaletteBuilder

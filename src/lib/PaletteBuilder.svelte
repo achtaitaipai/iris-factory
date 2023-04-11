@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte'
-	import CubicBezierEditor from './CubicBezierEditor.svelte'
+	import CubicBezierEditor from './CubicBezierEditor/index.svelte'
 	import InputHue from './InputHue.svelte'
 	import InputSteps from './InputSteps.svelte'
 	import Palette from './Palette.svelte'
@@ -10,11 +10,10 @@
 	
 	export let index:number
 
-	const palette = $palettes[index]
 
 	const namePalette = () =>
 				uniqueName(
-					palette.name,
+					$palettes[index].name,
 					$palettes.map((p) => p.name),
 					index
 				)
@@ -58,25 +57,27 @@
 			<summary>Settings</summary>
 			<div class="details-content">
 				<div>
-					<InputSteps bind:value={palette.steps} />
+					<InputSteps bind:value={$palettes[index].steps} />
 				</div>
 				<div>
-					<InputHue bind:value={palette.hue} />
+					<InputHue bind:value={$palettes[index].hue} />
 				</div>
-				<div>
-					<CubicBezierEditor  bind:values={palette.lightness}/>
-				</div>
-				<div>
-					<CubicBezierEditor bind:values={palette.chroma} />
-				</div>
+				<fieldset>
+					<legend>lightness :</legend>
+					<CubicBezierEditor  bind:values={$palettes[index].lightness}/>
+				</fieldset>
+				<fieldset>
+					<legend>chroma :</legend>
+					<CubicBezierEditor bind:values={$palettes[index].chroma} />
+				</fieldset>
 			</div>
 		</details>
 	</form>
 	<Palette
-		hue={palette.hue}
-		steps={palette.steps}
-		chroma={palette.chroma}
-		lightness={palette.lightness}
+		hue={$palettes[index].hue}
+		steps={$palettes[index].steps}
+		chroma={$palettes[index].chroma}
+		lightness={$palettes[index].lightness}
 	/>
 </div>
 
@@ -112,6 +113,10 @@
 		flex-basis: max(50% - var(--gap), 15rem);
 		flex-grow: 1;
 		flex-shrink: 0;
+	}
+	fieldset{
+		border: 0;
+		padding: var(--s-s);
 	}
 	button {
 		height: calc(1.7 * var(--fs-1));

@@ -1,4 +1,10 @@
+<script>
+
+	import CopyBtns from "./CopyBtns.svelte"
+
+</script>
 <header>
+	
 	<h1>
 		<a href="./"> Iris-Factory </a>
 	</h1>
@@ -21,15 +27,21 @@
 <style>
 	header {
 		display: flex;
-		justify-content: space-between;
 		align-items: center;
+		justify-content: space-between;
+		gap: var(--s-s);
 		padding-block: var(--s-xs);
 		padding-inline: var(--s-m);
 		background-color: var(--surface-1);
 		border-bottom: 1px solid var(--border-2);
 	}
+	h1{
+		text-align: center;
+	}
 	h1 a {
 		color: var(--text-accent-1);
+		text-align: center;
+		font-size: var(--fs-5);
 	}
 
 	h1 a:where(:hover, :focus-visible) {
@@ -49,6 +61,10 @@
 		h1 a:where(:hover, :focus-visible) {
 			color: transparent;
 		}
+	}
+	nav{
+		display: flex;
+		justify-content: flex-end;
 	}
 	nav a {
 		color: var(--text-3);
