@@ -59,6 +59,32 @@ button:where(:hover, :focus-visible) {
 	border-color: var(--border-accent-1);
 }
 
+table {
+	margin-inline: auto;
+	border-collapse: collapse;
+}
+th,
+td {
+	border: 1px solid var(--border-3);
+	text-align: center;
+	color: var(--text-3);
+	padding-block: var(--s-2xs);
+	padding-inline: var(--s-s);
+	min-inline-size: 15ch;
+}
+
+.success {
+	color: var(--text-success-2);
+}
+
+.warning {
+	color: var(--text-warning-2);
+}
+
+.error {
+	color: var(--text-error-2);
+}
+
 .center > *:not(.full-bleed) {
 	max-inline-size: clamp(20rem, 80vw, 65rem);
 	margin-inline: auto;

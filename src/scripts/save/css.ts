@@ -1,8 +1,8 @@
 import Colorjs from 'colorjs.io'
-import type { Color } from '../palette'
+import { hex, type Color } from '../palette'
 
 export const buildCss = (
-	palettes: { colors: Color[]; name: string }[],
+	palettes: { colors: Colorjs[]; name: string }[],
 	format?: ColorFormat
 ) => {
 	const css = palettes.reduce(
@@ -14,14 +14,13 @@ export const buildCss = (
 }
 
 const colorsToCssVariables = (
-	palette: Color[],
+	palette: Colorjs[],
 	name: string,
 	format?: ColorFormat
 ) => {
 	const css = palette.reduce(
 		(str, color, index) =>
-			str +
-			`    --${name}-${index} : ${getCssColor(color, format)};\n`,
+			str + `    --${name}-${index} : ${hex(color)};\n`,
 		''
 	)
 	return css

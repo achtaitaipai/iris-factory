@@ -7,14 +7,14 @@
 	import { currentPalette } from '../scripts/store/currentPalette'
 
 	export let index: number
-	export let colors: Colorjs[]
-	let colorsList: string[]
-	$: colorsList = colors.map((c) => hex(c))
+	export let colors: string[]
+
+	//
 </script>
 
 <div class="wrapper">
 	<div class="buttons">
-		{#each colorsList as hex, i}
+		{#each colors as hex, i}
 			<button
 				type="button"
 				style="--_bg-color:{hex};"
@@ -28,9 +28,7 @@
 	</div>
 	<div
 		class="gradient"
-		style="background-image:linear-gradient(to right,{colorsList.join(
-			','
-		)});"
+		style="background-image:linear-gradient(to right,{colors.join(',')});"
 	/>
 </div>
 

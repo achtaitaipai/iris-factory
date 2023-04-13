@@ -1,20 +1,19 @@
 <script lang="ts">
 	import { toast } from '@zerodevx/svelte-toast'
 	import { copyToClipBoard } from '../scripts/clipBoard'
-	import { buildCss } from '../scripts/save/css'
-	import { buildPalette, type Palette } from '../scripts/palette'
-	import { buildJson } from '../scripts/save/json'
 	import { getUrlWithData } from '../scripts/dataToUrl'
+	import { colors } from '../scripts/store/colors'
 	import { palettes } from '../scripts/store/palette'
 
 	const copyCss = () => {
-		const datas = $palettes.map((p) => ({
-			name: p.name,
-			colors: buildPalette(p),
-		}))
-		const css = `/*  ${getUrlWithData(
-			JSON.stringify($palettes)
-		)} */ \n ${buildCss(datas)}`
+		const url = getUrlWithData(JSON.stringify($palettes))
+		let css = `/*  ${url} */ \n:root{\n`
+		$colors.forEach((list) => {
+			list.forEach(({ name, hex }) => {
+				css += `  --${name}:${hex};\n`
+			})
+		})
+		css += '}'
 		copyToClipBoard(
 			css,
 			() =>
@@ -26,11 +25,14 @@
 	}
 
 	const copyJson = () => {
-		const datas = $palettes.map((p) => ({
-			name: p.name,
-			colors: buildPalette(p),
-		}))
-		const json = buildJson(datas)
+		let json = `{`
+		$colors.forEach((list) => {
+			list.forEach(({ name, hex }, i) => {
+				json += `\n  "${name}":"${hex}",`
+			})
+		})
+		json = json.slice(0, -1)
+		json += '\n}'
 		copyToClipBoard(
 			json,
 			() =>
