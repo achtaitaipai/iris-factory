@@ -9,4 +9,6 @@ const app = new App({
 	target: document.getElementById('app'),
 })
 
+console.log('🪓🍵🍵💨')
+
 export default app

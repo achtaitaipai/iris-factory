@@ -25,7 +25,6 @@ export const colors = derived([palettes, steps], ([$palettes, $steps], set) => {
 	} else {
 		if (timeoutId) clearTimeout(timeoutId)
 		timeoutId = setTimeout(() => {
-			console.log('🔥')
 			set(createColors($palettes, $steps))
 		}, DEBOUNCEDELAY)
 	}

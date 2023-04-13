@@ -5,39 +5,43 @@
 	import { currentPalette } from '../scripts/store/currentPalette'
 	import ContrastRatio from './ContrastRatio.svelte'
 
-	let color: Colors
+	let color: Colors | undefined
 	let colorContrast = '#ff0000'
 	let contrast: number
 	$: {
-		color = $colors[$currentPalette][$currentColor]
+		if ($currentPalette < $colors.length && $currentPalette >= 0)
+			color = $colors[$currentPalette][$currentColor]
 	}
 
-	$: contrast =
-		Math.round(
-			color.color.contrast(new Colorjs(colorContrast), 'WCAG21') * 100
-		) / 100
+	$: contrast = color
+		? Math.round(
+				color.color.contrast(new Colorjs(colorContrast), 'WCAG21') * 100
+		  ) / 100
+		: 0
 </script>
 
-<section>
-	<header>
-		<div class="color" style="--_color:{color.hex}" />
+{#if color}
+	<section>
+		<header>
+			<div class="color" style="--_color:{color.hex}" />
 
-		<h2>{color.name}</h2>
-	</header>
-	<table>
-		<tr>
-			<th> Hexadecimal </th>
-			<td>{color.hex}</td>
-		</tr>
-		<tr>
-			<th> Relative luminance </th>
-			<td>
-				{color.luminance}
-			</td>
-		</tr>
-	</table>
-	<ContrastRatio color={color.color} />
-</section>
+			<h2>{color.name}</h2>
+		</header>
+		<table>
+			<tr>
+				<th> Hexadecimal </th>
+				<td>{color.hex}</td>
+			</tr>
+			<tr>
+				<th> Relative luminance </th>
+				<td>
+					{color.luminance}
+				</td>
+			</tr>
+		</table>
+		<ContrastRatio color={color.color} />
+	</section>
+{/if}
 
 <style>
 	section {

@@ -25,6 +25,32 @@
 			Math.min($palettes.length - 1, $currentPalette)
 		)
 	}
+
+	const handleKeyboard = (e: KeyboardEvent) => {
+		switch (e.code) {
+			case 'ArrowLeft':
+				e.preventDefault()
+				$currentColor--
+				break
+			case 'ArrowRight':
+				e.preventDefault()
+				$currentColor++
+
+				break
+			case 'ArrowDown':
+				e.preventDefault()
+				$currentPalette++
+				break
+			case 'ArrowUp':
+				e.preventDefault()
+				$currentPalette--
+				break
+		}
+		if ($currentColor >= $steps) $currentColor = 0
+		if ($currentColor < 0) $currentColor = $steps - 1
+		if ($currentPalette >= $palettes.length) $currentPalette = 0
+		if ($currentPalette < 0) $currentPalette = $palettes.length - 1
+	}
 </script>
 
 <main>
@@ -32,7 +58,7 @@
 		<InputSteps bind:value={$steps} />
 		<CopyBtns />
 	</div>
-	<div class="palettes">
+	<div class="palettes" on:keydown={handleKeyboard}>
 		{#each $colors as list, index}
 			{#if $palettes[index]}
 				<div class="palette" aria-selected={index === $currentPalette}>

@@ -1,10 +1,10 @@
-import { cubicBezier, type EaseParameter } from './cubicBezier'
+import { cubicBezier, type CubicBezierParameter } from './cubicBezier'
 import Colorjs from 'colorjs.io'
 
 export type PaletteOptions = {
 	hue: number
-	lightness: EaseParameter
-	chroma: EaseParameter
+	lightness: CubicBezierParameter
+	chroma: CubicBezierParameter
 }
 
 export type Palette = { name: string } & PaletteOptions
@@ -17,10 +17,12 @@ export type Color = {
 export const clonePaletteOptions = (
 	palette: PaletteOptions
 ): PaletteOptions => ({
-	chroma: [...palette.chroma.map((itm) => [itm[0], itm[1]])] as EaseParameter,
+	chroma: [
+		...palette.chroma.map((itm) => [itm[0], itm[1]]),
+	] as CubicBezierParameter,
 	lightness: [
 		...palette.lightness.map((itm) => [itm[0], itm[1]]),
-	] as EaseParameter,
+	] as CubicBezierParameter,
 	hue: palette.hue,
 })
 

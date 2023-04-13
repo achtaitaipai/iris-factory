@@ -1,8 +1,9 @@
 <script lang="ts">
 	import Colorjs from 'colorjs.io'
+	import { colors } from '../scripts/store/colors'
 	export let color: Colorjs
-	let bg = '#ffffff'
-	let fg = '#000000'
+	let bg = $colors.flat()[0].hex
+	let fg = $colors.flat()[0].hex
 	let fgRatio: number
 	let bgRatio: number
 	$: {
@@ -33,12 +34,22 @@
 			<th />
 			<th>
 				<label class="with-color">
-					Background <input type="color" bind:value={bg} />
+					Background
+					<select bind:value={bg}>
+						{#each $colors.flat() as { name, hex }}
+							<option value={hex}>{name}</option>
+						{/each}
+					</select>
 				</label>
 			</th>
 			<th>
 				<label class="with-color">
-					Foreground <input type="color" bind:value={fg} />
+					Foreground
+					<select bind:value={fg}>
+						{#each $colors.flat() as { name, hex }}
+							<option value={hex}>{name}</option>
+						{/each}
+					</select>
 				</label>
 			</th>
 		</tr>
@@ -71,16 +82,6 @@
 		display: flex;
 		align-items: center;
 		gap: var(--s-2xs);
-	}
-	[type='color'] {
-		-webkit-appearance: none;
-		-moz-appearance: none;
-		appearance: none;
-		background-color: transparent;
-		border: none;
-		width: 1.5em;
-		height: 1.5em;
-		cursor: pointer;
 	}
 	.ratio-result {
 		font-weight: bold;

@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { EaseParameter } from '../../scripts/cubicBezier'
+	import type { CubicBezierParameter } from '../../scripts/cubicBezier'
 	import Handle from './Handle.svelte'
 	let width: number
-	export let values: EaseParameter
+	export let values: CubicBezierParameter
 
 	const valueToPos = (val: number) => (val * width ?? 1) / 100
 	const posToValue = (pos: number) => (pos / (width ?? 1)) * 100
