@@ -4,10 +4,13 @@
 	import { getUrlWithData } from '../scripts/dataToUrl'
 	import { colors } from '../scripts/store/colors'
 	import { palettes } from '../scripts/store/palette'
+	import { steps } from '../scripts/store/steps'
+
+	const url = () =>
+		getUrlWithData(JSON.stringify({ palettes: $palettes, steps: $steps }))
 
 	const copyCss = () => {
-		const url = getUrlWithData(JSON.stringify($palettes))
-		let css = `/*  ${url} */ \n:root{\n`
+		let css = `/*  ${url()} */ \n:root{\n`
 		$colors.forEach((list) => {
 			list.forEach(({ name, hex }) => {
 				css += `  --${name}:${hex};\n`
@@ -27,7 +30,7 @@
 	const copyJson = () => {
 		let json = `{`
 		$colors.forEach((list) => {
-			list.forEach(({ name, hex }, i) => {
+			list.forEach(({ name, hex }) => {
 				json += `\n  "${name}":"${hex}",`
 			})
 		})
@@ -44,9 +47,8 @@
 	}
 
 	const copyUrl = () => {
-		const url = getUrlWithData(JSON.stringify($palettes))
 		copyToClipBoard(
-			url,
+			url(),
 			() =>
 				toast.push(`
 			link copied to clipboard

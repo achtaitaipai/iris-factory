@@ -15,5 +15,5 @@ export const getDatasFromUrl = () => {
 	const compressed = params.get('d')
 	if (!compressed) return
 	const json = decompress(compressed)
-	return JSON.parse(json) as Palette[]
+	return JSON.parse(json) as { palettes: Palette[]; steps: number }
 }

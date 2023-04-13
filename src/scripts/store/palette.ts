@@ -20,7 +20,7 @@ const defaultPalette: PaletteOptions = {
 }
 
 const initialPalette = () =>
-	getDatasFromUrl() ?? [{ name: 'color-0', ...defaultPalette }]
+	getDatasFromUrl()?.palettes ?? [{ name: 'color-0', ...defaultPalette }]
 
 export const palettes = writable(initialPalette())
 
