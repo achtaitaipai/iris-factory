@@ -14,10 +14,12 @@
 
 <div class="wrapper" bind:clientWidth={width}>
 	<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-		<path class="grid"
+		<path
+			class="grid"
 			d="M 0 10 100 10 M 0 20 100 20 M 0 30 100 30 M 0 40 100 40 M 0 50 100 50 M 0 60 100 60 M0 70 100 70 M 0 80 100 80 M 0 90 100 90"
 		/>
-		<path class="curve"
+		<path
+			class="curve"
 			d="M {values[0][0]} {values[0][1]} C {values[1][0]} {values[1][1]}, {values[2][0]} {values[2][1]}, {values[3][0]} {values[3][1]}"
 		/>
 		<line
@@ -89,7 +91,7 @@
 	}
 	svg {
 		outline: 6px solid var(--border-2);
-		outline-offset: 6px;;
+		outline-offset: 6px;
 		background-color: var(--surface-2);
 	}
 	.grid {

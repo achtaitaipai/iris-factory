@@ -3,7 +3,7 @@
 
 	export let name: string = ''
 	export let namePalette: (name: string) => string
-	export let input: HTMLInputElement
+	let input: HTMLInputElement
 	let selectionStart = 0
 	let selectionEnd = 0
 
@@ -41,19 +41,22 @@
 
 <style>
 	div {
-		flex: 1;
-		padding-block: var(--s-xxs);
+		height: 100%;
+		margin-inline-end: var(--s-2xs);
+		padding-block: var(--s-2xs);
+		inline-size: 15ch;
 	}
 	input {
+		inline-size: 100%;
 		line-height: 1.2;
 		background-color: transparent;
 		border: 0;
-		font-size: var(--fs-4);
 		color: var(--text-1);
 		font-weight: bold;
-		padding-inline: var(--s-xs);
-		width: 100%;
+		padding-inline: var(--s-2xs);
 		cursor: default;
+		height: 100%;
+		outline: 1px solid transparent;
 	}
 	input::placeholder {
 		color: var(--text-4);
@@ -62,5 +65,9 @@
 		background-color: var(--surface-2);
 		color: var(--text-3);
 		outline: 1px solid var(--border-3);
+	}
+	:global([aria-selected='true'] input) {
+		color: var(--text-accent-1);
+		outline: 1px solid var(--text-accent-1);
 	}
 </style>

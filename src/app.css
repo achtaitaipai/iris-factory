@@ -12,6 +12,17 @@ body {
 	background-color: var(--surface-2);
 }
 
+#app {
+	display: grid;
+	grid-template-rows: auto 1fr;
+	grid-template-columns: 1fr minmax(20%, min(40rem, 40%));
+	align-items: start;
+}
+
+header {
+	grid-column: 1 / -1;
+}
+
 h1,
 h2,
 h3 {

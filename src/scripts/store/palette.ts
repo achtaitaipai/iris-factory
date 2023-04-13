@@ -17,7 +17,6 @@ const defaultPalette: PaletteOptions = {
 		[100, 50],
 	],
 	hue: Math.floor(Math.random() * 360),
-	steps: 10,
 }
 
 const initialPalette = () =>
@@ -25,16 +24,17 @@ const initialPalette = () =>
 
 export const palettes = writable(initialPalette())
 
-export const addPalette = ()=>palettes.update((palettes) => [
-    ...palettes,
-    {
-        ...clonePaletteOptions(
-            palettes[palettes.length - 1] ?? defaultPalette
-        ),
-        hue: Math.floor(Math.random() * 360),
-        name: uniqueName(
-            'color-0',
-            palettes.map((p) => p.name)
-        ),
-    },
-])
+export const addPalette = () =>
+	palettes.update((palettes) => [
+		...palettes,
+		{
+			...clonePaletteOptions(
+				palettes[palettes.length - 1] ?? defaultPalette
+			),
+			hue: Math.floor(Math.random() * 360),
+			name: uniqueName(
+				'color-0',
+				palettes.map((p) => p.name)
+			),
+		},
+	])

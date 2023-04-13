@@ -1,11 +1,11 @@
 type Point = [number, number]
 export type EaseParameter = [Point, Point, Point, Point]
-const precision = 100
+const precision = 50
 
 export const cubicBezier = ([p0, p1, p2, p3]: EaseParameter, steps: number) => {
 	const curve: Point[] = []
 	for (let i = 0; i <= precision; i++) {
-        const t = i /precision
+		const t = i / precision
 		const y = getPoint(t, p0[1], p1[1], p2[1], p3[1])
 		const x = getPoint(t, p0[0], p1[0], p2[0], p3[0])
 		curve.push([x, y])
@@ -13,7 +13,7 @@ export const cubicBezier = ([p0, p1, p2, p3]: EaseParameter, steps: number) => {
 	const result: number[] = []
 	for (let step = 0; step < steps; step++) {
 		const x = step / (steps - 1)
-		result.push(1 -closest(x, curve))
+		result.push(1 - closest(x, curve))
 	}
 	return result
 }

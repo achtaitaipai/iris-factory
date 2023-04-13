@@ -9,8 +9,10 @@
 }
 
 html,
-body {
-	block-size: 100%;
+body,
+#app {
+	block-size: 100vh;
+	overflow: hidden;
 }
 
 body {

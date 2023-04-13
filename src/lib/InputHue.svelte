@@ -1,16 +1,21 @@
 <script lang="ts">
-	export let value:number 
+	export let value: number
+
+	//
 </script>
 
-<label>
-	Hue {value}°
+<fieldset>
+	<legend>
+		Hue {value}°
+	</legend>
 	<input type="range" bind:value min="0" max="360" />
-</label>
+</fieldset>
 
 <style>
-	label {
+	fieldset {
 		display: grid;
 		gap: var(--s-2xs);
+		border: 0;
 		/* width: 20rem; */
 	}
 	input {
@@ -23,9 +28,9 @@
 		aspect-ratio: 1;
 		transform: translateY(-10%);
 		border: 2px solid var(--text-1);
+		/* border-radius: 0.5rem; */
 	}
 	input::-webkit-slider-runnable-track {
-		border-radius: 0.5rem;
 		height: 1.5em;
 		background: linear-gradient(
 			to right,
