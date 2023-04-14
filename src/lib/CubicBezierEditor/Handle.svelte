@@ -11,20 +11,20 @@
 	const keydown = (e: KeyboardEvent) => {
 		switch (e.code) {
 			case 'ArrowLeft':
-                updateValues(Math.max(minX,x-1),y)
-                e.preventDefault()
+				updateValues(Math.max(minX, x - 1), y)
+				e.preventDefault()
 				break
 			case 'ArrowRight':
-                updateValues(Math.min(maxX,x+1),y)
-                e.preventDefault()
+				updateValues(Math.min(maxX, x + 1), y)
+				e.preventDefault()
 				break
 			case 'ArrowUp':
-                updateValues(x,Math.max(minY,y-1))
-                e.preventDefault()
+				updateValues(x, Math.max(minY, y - 1))
+				e.preventDefault()
 				break
 			case 'ArrowDown':
-                updateValues(x,Math.min(maxY,y+1))
-                e.preventDefault()
+				updateValues(x, Math.min(maxY, y + 1))
+				e.preventDefault()
 				break
 		}
 	}
@@ -71,6 +71,6 @@
 	}
 	.handle:focus {
 		border-color: var(--text-accent-1);
-        outline: 0;
+		outline: 0;
 	}
 </style>
