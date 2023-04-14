@@ -11,11 +11,11 @@
 <form action="">
 	<InputHue bind:value={$palettes[index].hue} />
 	<fieldset>
-		<legend>lightness :</legend>
+		<legend>Lightness :</legend>
 		<CubicBezierEditor bind:values={$palettes[index].lightness} />
 	</fieldset>
 	<fieldset>
-		<legend>chroma :</legend>
+		<legend>Chroma :</legend>
 		<CubicBezierEditor bind:values={$palettes[index].chroma} />
 	</fieldset>
 </form>

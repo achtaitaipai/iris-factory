@@ -1,18 +1,25 @@
 <script lang="ts">
 	import Colorjs from 'colorjs.io'
 	import { colors } from '../scripts/store/colors'
+	import SelectColor from './SelectColor.svelte'
 	export let color: Colorjs
-	let bg = $colors.flat()[0].hex
-	let fg = $colors.flat()[0].hex
+	let bgIndex = 0
+	let fgIndex = 0
+
 	let fgRatio: number
 	let bgRatio: number
+
 	$: {
 		fgRatio =
-			Math.round(Colorjs.contrastWCAG21(color, new Colorjs(fg)) * 100) /
-			100
+			Math.round(
+				Colorjs.contrastWCAG21(color, $colors.flat()[fgIndex].color) *
+					100
+			) / 100
 		bgRatio =
-			Math.round(Colorjs.contrastWCAG21(new Colorjs(bg), color) * 100) /
-			100
+			Math.round(
+				Colorjs.contrastWCAG21($colors.flat()[bgIndex].color, color) *
+					100
+			) / 100
 	}
 
 	const criterias = [
@@ -25,6 +32,13 @@
 		if (ratio >= aa) return '<span class="warning">AA</span>'
 		return '<span class="error">Fail</span>'
 	}
+	const ratioToString = (ratio: number) => {
+		let ratioStr = ratio.toString()
+
+		if (ratioStr.length === 1) ratioStr += '.00'
+		if (ratioStr.length === 3) ratioStr += '0'
+		return ratioStr
+	}
 </script>
 
 <h3>Contrast ratio</h3>
@@ -33,32 +47,18 @@
 		<tr>
 			<th />
 			<th>
-				<label class="with-color">
-					Background
-					<select bind:value={bg}>
-						{#each $colors.flat() as { name, hex }}
-							<option value={hex}>{name}</option>
-						{/each}
-					</select>
-				</label>
+				<SelectColor bind:value={bgIndex} label="Background" />
 			</th>
 			<th>
-				<label class="with-color">
-					Foreground
-					<select bind:value={fg}>
-						{#each $colors.flat() as { name, hex }}
-							<option value={hex}>{name}</option>
-						{/each}
-					</select>
-				</label>
+				<SelectColor bind:value={fgIndex} label="Foreground" />
 			</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
 			<td>Ratio</td>
-			<td>{bgRatio}</td>
-			<td>{fgRatio}</td>
+			<td>{ratioToString(bgRatio)}</td>
+			<td>{ratioToString(fgRatio)}</td>
 		</tr>
 		{#each criterias as [label, aa, aaa]}
 			<tr>
@@ -78,11 +78,7 @@
 	h3 {
 		text-align: center;
 	}
-	.with-color {
-		display: flex;
-		align-items: center;
-		gap: var(--s-2xs);
-	}
+
 	.ratio-result {
 		font-weight: bold;
 		font-style: italic;
