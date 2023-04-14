@@ -59,6 +59,18 @@ button:where(:hover, :focus-visible) {
 	border-color: var(--border-accent-1);
 }
 
+select {
+	background-color: transparent;
+	border: 1px solid var(--border-2);
+	padding-inline: var(--s-2xs);
+}
+
+select:where(:hover, :focus) {
+	background-color: var(--surface-2);
+	border-color: var(--border-accent-1);
+	outline-color: var(--border-accent-1);
+}
+
 table {
 	margin-inline: auto;
 	border-collapse: collapse;

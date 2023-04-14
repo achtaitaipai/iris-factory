@@ -1,11 +1,13 @@
 <script lang="ts">
 	import { tick } from 'svelte'
+	import { currentPalette } from '../scripts/store/currentPalette'
 
 	export let name: string = ''
 	export let namePalette: (name: string) => string
 	let input: HTMLInputElement
 	let selectionStart = 0
 	let selectionEnd = 0
+	export let index: number
 
 	const handleInput = async () => {
 		name = name
@@ -25,6 +27,10 @@
 	const handleChange = () => {
 		name = namePalette(name.trim() === '' ? 'color-0' : name)
 	}
+
+	const handleFocus = () => {
+		$currentPalette = index
+	}
 </script>
 
 <div>
@@ -36,6 +42,8 @@
 		bind:value={name}
 		on:input={handleInput}
 		on:change={handleChange}
+		maxlength="10"
+		on:focus={handleFocus}
 	/>
 </div>
 

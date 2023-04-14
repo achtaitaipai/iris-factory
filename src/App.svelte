@@ -25,9 +25,9 @@
 		block-size: 100%;
 		overflow: auto;
 		align-items: start;
-		border-left: 1px solid var(--border-1);
+		border-left: 4px solid var(--border-1);
 
-		background-color: var(--surface-1);
+		/* background-color: var(--surface-1); */
 		padding-block: var(--s-s);
 		padding-inline: var(--s-m);
 	}

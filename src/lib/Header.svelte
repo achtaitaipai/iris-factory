@@ -1,10 +1,8 @@
 <script>
-
-	import CopyBtns from "./CopyBtns.svelte"
-
+	import CopyBtns from './ExportBtns.svelte'
 </script>
+
 <header>
-	
 	<h1>
 		<a href="./"> Iris-Factory </a>
 	</h1>
@@ -35,7 +33,7 @@
 		background-color: var(--surface-1);
 		border-bottom: 1px solid var(--border-2);
 	}
-	h1{
+	h1 {
 		text-align: center;
 	}
 	h1 a {
@@ -62,7 +60,7 @@
 			color: transparent;
 		}
 	}
-	nav{
+	nav {
 		display: flex;
 		justify-content: flex-end;
 	}

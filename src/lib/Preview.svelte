@@ -7,7 +7,7 @@
 	import { uniqueName } from '../scripts/uniqueName'
 	import ColorIdentity from './ColorIdentity.svelte'
 	import Colors from './Colors.svelte'
-	import CopyBtns from './CopyBtns.svelte'
+	import CopyBtns from './ExportBtns.svelte'
 	import InputSteps from './InputSteps.svelte'
 	import PaletteName from './PaletteName.svelte'
 
@@ -65,6 +65,7 @@
 					<PaletteName
 						bind:name={$palettes[index].name}
 						namePalette={() => namePalette(index)}
+						{index}
 					/>
 					<Colors {index} colors={list.map(({ hex }) => hex)} />
 					<button
