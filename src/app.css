@@ -14,9 +14,23 @@ body {
 
 #app {
 	display: grid;
-	grid-template-rows: auto 1fr;
-	grid-template-columns: 1fr minmax(20%, min(40rem, 40%));
 	align-items: start;
+	grid-template-rows: auto 1fr 1fr;
+}
+aside {
+	border-block-start: 2px solid var(--border-1);
+}
+
+@media (min-width: 64rem) {
+	#app {
+		grid-template-rows: auto 1fr;
+		grid-template-columns: 1fr minmax(20%, min(40rem, 40%));
+		grid-template-rows: auto 1fr;
+	}
+	aside {
+		border: 0;
+		border-inline-start: 2px solid var(--border-1);
+	}
 }
 
 header {

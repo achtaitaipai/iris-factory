@@ -45,23 +45,30 @@
 
 <style>
 	section {
-		display: inline-grid;
-		gap: var(--s-s);
-		padding: var(--s-s);
-		margin-inline: auto;
-		background-color: var(--surface-1);
-		border: 1px solid var(--border-1);
+		display: none;
 	}
-	header {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		gap: var(--s-s);
-	}
-	.color {
-		inline-size: 3rem;
-		aspect-ratio: 1;
-		background-color: var(--_color);
-		border: 1px solid var(--border-3);
+
+	@media (min-width: 600px) {
+		section {
+			display: inline-grid;
+			gap: var(--s-s);
+			padding: var(--s-s);
+			margin-inline: auto;
+			background-color: var(--surface-1);
+			border: 1px solid var(--border-1);
+			max-inline-size: 100%;
+		}
+		header {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: var(--s-s);
+		}
+		.color {
+			inline-size: 3rem;
+			aspect-ratio: 1;
+			background-color: var(--_color);
+			border: 1px solid var(--border-3);
+		}
 	}
 </style>

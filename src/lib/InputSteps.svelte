@@ -1,5 +1,9 @@
 <script lang="ts">
-	export let value: number 
+	import { clamp } from '../scripts/helpers'
+
+	export let value: number
+
+	//
 </script>
 
 <label>

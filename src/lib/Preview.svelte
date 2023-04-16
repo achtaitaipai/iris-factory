@@ -131,20 +131,18 @@
 		justify-content: space-between;
 		padding-inline: var(--s-2xs);
 		margin-block-end: var(--s-s);
-	}
-	.palettes {
-		display: grid;
+		flex-wrap: wrap;
+		gap: var(--s-s);
 	}
 	.palette {
 		display: flex;
 		align-items: center;
-		height: 5rem;
+		block-size: var(--s-xl);
 	}
 
 	button {
 		font-size: var(--fs--1);
-		padding: var(--s-2xs);
-		display: block;
+		padding: var(--s-3xs);
 		margin-inline: auto;
 		font-weight: bold;
 		line-height: 1;

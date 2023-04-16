@@ -12,34 +12,24 @@
 	//
 </script>
 
-<div class="wrapper">
-	<div class="buttons">
-		{#each colors as hex, i}
-			<button
-				type="button"
-				style="--_bg-color:{hex};"
-				aria-current={i === $currentColor && index === $currentPalette}
-				on:click={() => {
-					$currentPalette = index
-					$currentColor = i
-				}}
-			/>
-		{/each}
-	</div>
-	<div
-		class="gradient"
-		style="background-image:linear-gradient(to right,{colors.join(',')});"
-	/>
+<div class="buttons">
+	{#each colors as hex, i}
+		<button
+			type="button"
+			style="--_bg-color:{hex};"
+			aria-current={i === $currentColor && index === $currentPalette}
+			on:click={() => {
+				$currentPalette = index
+				$currentColor = i
+			}}
+		/>
+	{/each}
 </div>
 
 <style>
-	.wrapper {
-		flex: 1;
-		height: 100%;
-		display: grid;
-		grid-template-rows: 2fr 1fr;
-	}
 	.buttons {
+		block-size: 100%;
+		flex: 1;
 		display: flex;
 		flex: 1;
 		height: 100%;
@@ -48,7 +38,7 @@
 		flex: 1;
 		background-color: var(--_bg-color);
 		color: var(--_color);
-		height: 100%;
+		block-size: 100%;
 		border: 0;
 		transition: transform 0.15s;
 	}

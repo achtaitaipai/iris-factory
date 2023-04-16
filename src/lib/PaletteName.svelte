@@ -49,22 +49,27 @@
 
 <style>
 	div {
-		height: 100%;
-		margin-inline-end: var(--s-2xs);
+		block-size: 100%;
 		padding-block: var(--s-2xs);
-		inline-size: 15ch;
+		/* inline-size: 15ch; */
+		margin-inline-end: var(--s-2xs);
+	}
+	@media (max-width: 30rem) {
+		div {
+			display: none;
+		}
 	}
 	input {
-		inline-size: 100%;
+		padding-inline: var(--s-3xs);
+		inline-size: calc(10ch + 2 * var(--s-3xs));
+		block-size: 100%;
 		line-height: 1.2;
-		background-color: transparent;
-		border: 0;
-		color: var(--text-1);
 		font-weight: bold;
-		padding-inline: var(--s-2xs);
-		cursor: default;
-		height: 100%;
+		color: var(--text-1);
+		background-color: transparent;
 		outline: 1px solid transparent;
+		border: 0;
+		cursor: default;
 	}
 	input::placeholder {
 		color: var(--text-4);

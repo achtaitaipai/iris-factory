@@ -111,7 +111,7 @@
 		</svg>
 	</button>
 	<button on:click={() => buildAndDownloadPng($colors, $steps)}>
-		Download png
+		Get png
 		<svg
 			width="1.25em"
 			height="1.25em"
@@ -131,21 +131,32 @@
 <style>
 	.flex {
 		display: flex;
-		gap: var(--s-s);
+		gap: var(--s-2xs);
 		flex-wrap: wrap;
+		--threshold: 28rem;
+		justify-content: center;
+		inline-size: min(100%, 45rem);
 	}
 	button {
 		display: flex;
 		align-items: center;
+		justify-content: center;
+		flex-grow: 1;
+		flex-basis: calc((28rem - 100%) * 999);
 		gap: var(--s-2xs);
+		white-space: nowrap;
+	}
+	svg {
+		inline-size: 1em;
+		flex-shrink: 0;
 	}
 	button:where(:hover, :focus) {
 		color: var(--text-accent-2);
 		border-color: var(--border-accent-1);
 	}
-	@media (max-width: 60rem) {
+	/* @media (max-width: 60rem) {
 		svg {
 			display: none;
 		}
-	}
+	} */
 </style>

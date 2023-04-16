@@ -27,6 +27,8 @@
 	label {
 		display: flex;
 		align-items: center;
+		justify-content: center;
 		gap: var(--s-2xs);
+		flex-wrap: wrap;
 	}
 </style>
